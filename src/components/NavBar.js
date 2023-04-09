@@ -1,12 +1,13 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <Navbar expand="md" fixed="top">
+    <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <Navbar.Brand>
-          <i className="fa-solid fa-headset"></i>
+          <i className="fa-solid fa-headset"></i>Gamer Guild
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
