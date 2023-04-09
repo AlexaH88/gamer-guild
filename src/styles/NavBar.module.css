@@ -1,4 +1,5 @@
 .NavBar {
+    font-family: "Bungee Inline", sans-serif;
     background-color: #104b87;
 }
 
@@ -7,5 +8,32 @@
 }
 
 .Active i {
-    color: #2142b2;
+    color: #fdea00;
+}
+
+a {
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover i {
+    color: #fdea00;
+    transition: color ease-in-out 0.3s;
+}
+
+i {
+    color: #ffffff;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+}
+
+i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #fdea00;
 }

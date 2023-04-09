@@ -1,34 +1,33 @@
 .App {
-    font-family: "Bungee Inline", sans-serif;
     font-family: "Audiowide", sans-serif;
     background-color: #f8f8f8;
     min-height: 100vh;
+}
+
+.Main {
+    padding-top: 81px;
 }
 
 * {
     box-sizing: border-box;
 }
 
-body {
-    color: #ffffff;
-}
-
 a {
-    color: #ffffff;
-    transition: color ease-in-out 0.3s;
+    color: #000000;
 }
 
 a:hover {
     text-decoration: none;
+    color: #104b87;
 }
 
 a:hover i {
-    color: #fdea00;
+    color: #104b87;
     transition: color ease-in-out 0.3s;
 }
 
 i {
-    color: #ffffff;
+    color: #000000;
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle;
@@ -37,5 +36,5 @@ i {
 i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #fdea00;
+    color: #104b87;
 }
