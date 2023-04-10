@@ -3,37 +3,52 @@
     background-color: #104b87;
 }
 
-.NavLink {
-    padding: 5px;
-}
-
-.Active i {
-    color: #c1dfff;
-}
-
-a {
-    color: #ffffff;
-}
-
-a:hover {
+.NavBar a:hover {
     text-decoration: none;
     color: #ffffff;
 }
 
-a:hover i {
+.NavBar a:hover i {
     color: #c1dfff;
     transition: color ease-in-out 0.3s;
 }
 
-i {
+.NavBar i {
     color: #ffffff;
-    font-size: 1.6rem;
-    padding: 7px;
+    padding: 6px;
     vertical-align: middle;
 }
 
-i:hover {
+.NavBar i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
+    color: #c1dfff;
+}
+
+.NavBrand span {
+    color: #ffffff;
+    font-size: 1.4rem;
+    vertical-align: middle;
+}
+
+.NavBrand i {
+    font-size: 1.8rem;
+}
+
+.NavLink {
+    padding: 6px;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.NavLink span {
+    vertical-align: middle;
+}
+
+.NavLink i {
+    font-size: 1rem;
+}
+
+.Active i {
     color: #c1dfff;
 }

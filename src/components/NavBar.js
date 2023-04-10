@@ -8,8 +8,9 @@ const NavBar = () => {
     <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <NavLink to="/">
-          <Navbar.Brand>
-            <i className="fa-solid fa-headset" aria-hidden="true"></i>Gamer Guild
+          <Navbar.Brand className={styles.NavBrand}>
+            <i className="fa-solid fa-headset" aria-hidden="true"></i>
+            <span>Gamer Guild</span>
           </Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,7 +22,8 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home" aria-hidden="true"></i>Home
+              <i className="fas fa-home" aria-hidden="true"></i>
+              <span>Home</span>
             </NavLink>
             <NavLink
               exact
@@ -29,7 +31,8 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/signin"
             >
-              <i className="fas fa-sign-in-alt" aria-hidden="true"></i>Sign in
+              <i className="fas fa-sign-in-alt" aria-hidden="true"></i>
+              <span>Sign In</span>
             </NavLink>
             <NavLink
               exact
@@ -37,7 +40,8 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/signup"
             >
-              <i className="fas fa-user-plus" aria-hidden="true"></i>Sign up
+              <i className="fas fa-user-plus" aria-hidden="true"></i>
+              <span>Sign Up</span>
             </NavLink>
           </Nav>
         </Navbar.Collapse>

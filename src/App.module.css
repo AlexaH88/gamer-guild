@@ -1,12 +1,37 @@
 .App {
     /* font-family: "Audiowide", sans-serif; */
     font-family: "Black Ops One", sans-serif;
+    /* font-family: "Bungee", sans-serif; */
+
     background-color: #c1dfff;
     min-height: 100vh;
 }
 
 .Main {
     padding-top: 81px;
+}
+
+.Content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+}
+
+.Content h1 {
+    font-family: "Bungee", sans-serif;
+}
+
+.FillerImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 * {
@@ -27,6 +52,10 @@ a:hover i {
     transition: color ease-in-out 0.3s;
 }
 
+input[type="file"] {
+    display: none;
+}
+
 i {
     color: #000000;
     font-size: 1.6rem;
@@ -38,4 +67,26 @@ i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
     color: #104b87;
+}
+
+figure {
+    text-align: center;
+    display: inline-block;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
