@@ -8,7 +8,7 @@
 }
 
 .Active i {
-    color: #fdea00;
+    color: #c1dfff;
 }
 
 a {
@@ -21,7 +21,7 @@ a:hover {
 }
 
 a:hover i {
-    color: #fdea00;
+    color: #c1dfff;
     transition: color ease-in-out 0.3s;
 }
 
@@ -35,5 +35,5 @@ i {
 i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #fdea00;
+    color: #c1dfff;
 }
