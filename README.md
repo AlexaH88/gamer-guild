@@ -54,7 +54,7 @@
 
 -   #### Typography
 
-    - The 'Bungee Inline' and 'Audiowide' fonts were used on all pages throughout the project. [Bungee Inline](https://fonts.google.com/specimen/Bungee+Inline?query=bungee) for the headings and [Audiowide](https://fonts.google.com/specimen/Audiowide?query=audio) is used for the remaining text.
+    - The 'Bungee', 'Audiowide' and 'Black Ops One' fonts were used on all pages throughout the project. [Bungee](https://fonts.google.com/specimen/Bungee) for the navbar, [Audiowide](https://fonts.google.com/specimen/Audiowide) for the headingsm, and [Black Ops One](https://fonts.google.com/specimen/Black+Ops+One) is used for the remaining text.
 
     - The fonts were chosen for their playful and retro feel, and the similarity to old video game text, all the while taking into account the general feel of the site. 
     
