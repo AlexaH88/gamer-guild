@@ -15,10 +15,9 @@
 .Header {
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 22px;
     line-height: 19px;
     text-align: center;
-    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #000000;
 }
@@ -31,7 +30,8 @@
 }
 
 .Link span {
-    color: #104b87;;
+    color: #104b87;
+    font-weight: bold;
 }
 
 .Container {

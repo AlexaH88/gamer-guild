@@ -9,7 +9,7 @@
 }
 
 .NavBar a:hover i {
-    color: #c1dfff;
+    color: #54d9ff;
     transition: color ease-in-out 0.3s;
 }
 
@@ -22,12 +22,12 @@
 .NavBar i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #c1dfff;
+    color: #54d9ff;
 }
 
 .NavBrand span {
     color: #ffffff;
-    font-size: 1.4rem;
+    font-size: 22px;
     vertical-align: middle;
 }
 
@@ -38,7 +38,7 @@
 .NavLink {
     padding: 6px;
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 18px;
 }
 
 .NavLink span {
@@ -46,9 +46,9 @@
 }
 
 .NavLink i {
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .Active i {
-    color: #c1dfff;
+    color: #54d9ff;
 }
