@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -13,8 +13,11 @@ import {
   Alert,
 } from "react-bootstrap";
 import axios from "axios";
+import { SetCurrentUserContext } from "../../App";
 
-const SignInForm = () => {
+function SignInForm() {
+  const setCurrentUser = useContext(SetCurrentUserContext);
+  
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -39,7 +42,8 @@ const SignInForm = () => {
     event.preventDefault();
     try {
       /* redirect to url and include the signUpData entered */
-      await axios.post("dj-rest-auth/login/", signInData);
+      const { data } = await axios.post("dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
       history.push("/");
     } catch (err) {
       /* optional chaining (?) to check if there is a an error response */
