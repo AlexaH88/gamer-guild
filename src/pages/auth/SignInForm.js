@@ -14,22 +14,21 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 
-const SignUpForm = () => {
-  const [signUpData, setSignUpData] = useState({
+const SignInForm = () => {
+  const [signInData, setSignInData] = useState({
     username: "",
-    password1: "",
-    password2: "",
+    password: "",
   });
-  const { username, password1, password2 } = signUpData;
+  const { username, password } = signInData;
 
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
 
   const handleChange = (event) => {
-    setSignUpData({
-      /* spread previous signUpData so only the relevant attribute is updated */
-      ...signUpData,
+    setSignInData({
+      /* spread previous signInData so only the relevant attribute is updated */
+      ...signInData,
       /* create key: value pair of name: value */
       [event.target.name]: event.target.value,
     });
@@ -40,8 +39,8 @@ const SignUpForm = () => {
     event.preventDefault();
     try {
       /* redirect to url and include the signUpData entered */
-      await axios.post("dj-rest-auth/registration/", signUpData);
-      history.push("/signin");
+      await axios.post("dj-rest-auth/login/", signInData);
+      history.push("/");
     } catch (err) {
       /* optional chaining (?) to check if there is a an error response */
       setErrors(err.response?.data);
@@ -51,9 +50,8 @@ const SignUpForm = () => {
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
-
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>Sign Up</h1>
+          <h1 className={styles.Header}>Sign In</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
@@ -72,36 +70,19 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-            <Form.Group controlId="password1">
+            <Form.Group controlId="password">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
                 placeholder="Password"
-                name="password1"
-                value={password1}
+                name="password"
+                value={password}
                 onChange={handleChange}
               />
             </Form.Group>
-            {/* display message if password1 is present in errors */}
-            {errors.password1?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
-            <Form.Group controlId="password2">
-              <Form.Label className="d-none">Confirm Password</Form.Label>
-              <Form.Control
-                className={styles.Input}
-                type="password"
-                placeholder="Confirm Password"
-                name="password2"
-                value={password2}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            {/* display message if password2 is present in errors */}
-            {errors.password2?.map((message, idx) => (
+            {/* display message if password is present in errors */}
+            {errors.password?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
@@ -110,7 +91,7 @@ const SignUpForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
               type="submit"
             >
-              Sign Up
+              Sign In
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
@@ -121,15 +102,15 @@ const SignUpForm = () => {
         </Container>
 
         <Container className={`mt-3 ${appStyles.Content}`}>
-          <Link className={styles.Link} to="/signin">
-            Already have an account? <span>Sign in</span>
+          <Link className={styles.Link} to="/signup">
+            Don't have an account? <span>Sign up now!</span>
           </Link>
         </Container>
 
       </Col>
       <Col
         md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
+        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
       >
         <Image
           className={`${appStyles.FillerImage}`}
@@ -142,4 +123,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;
