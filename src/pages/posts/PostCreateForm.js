@@ -23,8 +23,9 @@ function PostCreateForm() {
     title: "",
     content: "",
     image: "",
+    video: "",
   });
-  const { title, content, image } = postData;
+  const { title, content, image, video } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -92,6 +93,20 @@ function PostCreateForm() {
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Video URL</Form.Label>
+        <Form.Control
+          type="url"
+          name="video"
+          value={video}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.video?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
