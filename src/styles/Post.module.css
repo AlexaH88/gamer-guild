@@ -11,14 +11,15 @@ h5 {
     margin: 0 0;
 }
 
-.Heart {
-    color: #f85032;
+.LikeBlack,
+.LikeAqua {
+    color: #104b87;
 }
 
-.Heart:hover {
-    color: #2142b2;
+.LikeBlack:hover {
+    color: #000000;
 }
 
-.HeartOutline:hover {
-    color: #f85032;
+.LikeAqua:hover {
+    color: #54d9ff;
 }
