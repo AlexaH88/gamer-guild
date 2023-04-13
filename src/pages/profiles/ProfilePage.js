@@ -65,6 +65,39 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
+          {profile?.content && <Col className="p-3">{profile.content}</Col>}
+          <Row className="justify-content-center no-gutters">
+            {profile?.xbox && (
+              <a href={profile?.xbox}>
+                <i className="fa-brands fa-xbox" aria-hidden="true"></i>
+              </a>
+            )}
+            {profile?.playstation && (
+              <a href={profile?.playstation}>
+                <i className="fa-brands fa-playstation" aria-hidden="true"></i>
+              </a>
+            )}
+            {profile?.steam && (
+              <a href={profile?.steam}>
+                <i className="fa-brands fa-steam" aria-hidden="true"></i>
+              </a>
+            )}
+            {profile?.discord && (
+              <a href={profile?.discord}>
+                <i className="fa-brands fa-discord" aria-hidden="true"></i>
+              </a>
+            )}
+            {profile?.youtube && (
+              <a href={profile?.youtube}>
+                <i className="fa-brands fa-youtube" aria-hidden="true"></i>
+              </a>
+            )}
+            {profile?.twitch && (
+              <a href={profile?.twitch}>
+                <i className="fa-brands fa-twitch" aria-hidden="true"></i>
+              </a>
+            )}
+          </Row>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.posts_count}</div>
@@ -99,7 +132,6 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
     </>
   );
