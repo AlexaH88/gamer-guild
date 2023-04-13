@@ -28,8 +28,24 @@ const ProfileEditForm = () => {
     name: "",
     content: "",
     image: "",
+    xbox: "",
+    playstation: "",
+    steam: "",
+    discord: "",
+    youtube: "",
+    twitch: "",
   });
-  const { name, content, image } = profileData;
+  const {
+    name,
+    content,
+    image,
+    xbox,
+    playstation,
+    steam,
+    discord,
+    youtube,
+    twitch,
+  } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -38,8 +54,28 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          const {
+            name,
+            content,
+            image,
+            xbox,
+            playstation,
+            steam,
+            discord,
+            youtube,
+            twitch,
+          } = data;
+          setProfileData({
+            name,
+            content,
+            image,
+            xbox,
+            playstation,
+            steam,
+            discord,
+            youtube,
+            twitch,
+          });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -64,6 +100,12 @@ const ProfileEditForm = () => {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("content", content);
+    formData.append("xbox", xbox);
+    formData.append("playstation", playstation);
+    formData.append("steam", steam);
+    formData.append("discord", discord);
+    formData.append("youtube", youtube);
+    formData.append("twitch", twitch);
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -94,12 +136,102 @@ const ProfileEditForm = () => {
           rows={7}
         />
       </Form.Group>
-
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
+
+      <Form.Group>
+        <Form.Label>Xbox Link</Form.Label>
+        <Form.Control
+          type="url"
+          value={xbox}
+          onChange={handleChange}
+          name="xbox"
+        />
+      </Form.Group>
+      {errors?.xbox?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Playstation Link</Form.Label>
+        <Form.Control
+          type="url"
+          value={playstation}
+          onChange={handleChange}
+          name="playstation"
+        />
+      </Form.Group>
+      {errors?.playstation?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Steam Link</Form.Label>
+        <Form.Control
+          type="url"
+          value={steam}
+          onChange={handleChange}
+          name="steam"
+        />
+      </Form.Group>
+      {errors?.steam?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Discord Link</Form.Label>
+        <Form.Control
+          type="url"
+          value={discord}
+          onChange={handleChange}
+          name="discord"
+        />
+      </Form.Group>
+      {errors?.discord?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Youtube Link</Form.Label>
+        <Form.Control
+          type="url"
+          value={youtube}
+          onChange={handleChange}
+          name="youtube"
+        />
+      </Form.Group>
+      {errors?.youtube?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Twitch Link</Form.Label>
+        <Form.Control
+          type="url"
+          value={twitch}
+          onChange={handleChange}
+          name="twitch"
+        />
+      </Form.Group>
+      {errors?.twitch?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
