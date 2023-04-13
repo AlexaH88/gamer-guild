@@ -11,23 +11,10 @@ h5 {
     margin: 0 0;
 }
 
-.LikeBlack,
-.LikeAqua {
+.LikeOwner {
     color: #104b87;
 }
 
-.LikeBlack:hover {
+.LikeOwner:hover {
     color: #000000;
-}
-
-.LikeAqua:hover {
-    color: #54d9ff;
-}
-
-.Comment {
-    color: #104b87;
-}
-
-.Comment:hover {
-    color: #54d9ff;
 }

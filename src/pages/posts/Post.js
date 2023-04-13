@@ -106,27 +106,27 @@ const Post = (props) => {
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
             >
-              <i className={`fa-solid fa-thumbs-up ${styles.LikeBlack}`} />
+              <i className={`fa-solid fa-thumbs-up ${styles.LikeOwner}`} />
             </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
-              <i className={`fa-solid fa-thumbs-up ${styles.LikeAqua}`} />
+              <i className="fa-solid fa-thumbs-up" />
             </span>
           ) : currentUser ? (
             <span onClick={handleLike}>
-              <i className={`fa-solid fa-thumbs-up ${styles.LikeAqua}`} />
+              <i className="fa-solid fa-thumbs-up" />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to like posts!</Tooltip>}
             >
-              <i className={`fa-solid fa-thumbs-up ${styles.LikeBlack}`} />
+              <i className={`fa-solid fa-thumbs-up ${styles.LikeOwner}`} />
             </OverlayTrigger>
           )}
           {likes_count}
           <Link to={`/posts/${id}`}>
-            <i className={`fa-solid fa-comments ${styles.Comment}`} />
+            <i className="fa-solid fa-comments" />
           </Link>
           {comments_count}
         </div>
