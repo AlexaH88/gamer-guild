@@ -10,6 +10,7 @@ import PostEditForm from "./pages/posts/PostEditForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
 import EventsPage from "./pages/events/EventsPage";
+import EventPage from "./pages/events/EventPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
@@ -25,6 +26,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
+          {/* posts */}
           <Route
             exact
             path="/"
@@ -35,6 +37,10 @@ function App() {
               />
             )}
           />
+          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
+          <Route exact path="/posts/:id" render={() => <PostPage />} />
+          <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
+          {/* events */}
           <Route
             exact
             path="/events"
@@ -45,12 +51,10 @@ function App() {
               />
             )}
           />
+          <Route exact path="/events/:id" render={() => <EventPage />} />
+          {/* chat */}
           <Route exact path="/chat" render={() => <h1>Chat Page</h1>} />
-          <Route exact path="/signin" render={() => <SignInForm />} />
-          <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
-          <Route exact path="/posts/:id" render={() => <PostPage />} />
-          <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
+          {/* profiles */}
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route
             exact
@@ -67,6 +71,9 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
+          {/* auth */}
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
