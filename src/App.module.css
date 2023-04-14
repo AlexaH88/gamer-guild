@@ -16,8 +16,13 @@
     border: 1px solid #dadadf;
 }
 
-.Content h1 {
+.Content h2 {
     font-family: "Bungee", sans-serif;
+    color: #104b87;
+    font-size: 22px;
+    text-align: center;
+    border-bottom: 3px #54d9ff solid;
+    padding: 5px;
 }
 
 .FillerImage {
