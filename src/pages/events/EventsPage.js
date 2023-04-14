@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Row, Col, Container } from "react-bootstrap";
-import Post from "./Post";
+// import Post from "./Post";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsEventsPage.module.css";
@@ -11,17 +11,17 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
-function PostsPage({ message, filter = "" }) {
-  const [posts, setPosts] = useState({ results: [] });
+function EventsPage({ message, filter = "" }) {
+  const [events, setEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchEvents = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
-        setPosts(data);
+        const { data } = await axiosReq.get(`/events/?${filter}search=${query}`);
+        setEvents(data);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -30,7 +30,7 @@ function PostsPage({ message, filter = "" }) {
 
     setHasLoaded(false);
     const timer = setTimeout(() => {
-      fetchPosts();
+      fetchEvents();
     }, 1000);
 
     return () => {
@@ -52,20 +52,21 @@ function PostsPage({ message, filter = "" }) {
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search posts"
+            placeholder="Search events"
           />
         </Form>
         {hasLoaded ? (
           <>
-            {posts.results.length ? (
+            {events.results.length ? (
               <InfiniteScroll
-                children={posts.results.map((post) => (
-                  <Post key={post.id} {...post} setPosts={setPosts} />
+                children={events.results.map((event) => (
+                  // <Post key={post.id} {...post} setPosts={setPosts} />
+                  <h1>Event</h1>
                 ))}
-                dataLength={posts.results.length}
+                dataLength={events.results.length}
                 loader={<Asset spinner />}
-                hasMore={!!posts.next}
-                next={() => fetchMoreData(posts, setPosts)}
+                hasMore={!!events.next}
+                next={() => fetchMoreData(events, setEvents)}
               />
             ) : (
               <Container className={appStyles.Content}>
@@ -86,4 +87,4 @@ function PostsPage({ message, filter = "" }) {
   );
 }
 
-export default PostsPage;
+export default EventsPage;
