@@ -3,7 +3,7 @@ import { Form, Row, Col, Container } from "react-bootstrap";
 import Post from "./Post";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
-import styles from "../../styles/PostsEventsPage.module.css";
+import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no_results.png";

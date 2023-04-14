@@ -1,0 +1,33 @@
+.Event {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.Event figure,
+h5 {
+    margin: 0 0;
+}
+
+.EventBar {
+    border-top: 1px solid #dadadf;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.Heading {
+    color: #104b87;
+    font-weight: bold;
+}
+
+.AttendOwner,
+.LikeOwner {
+    color: #104b87;
+}
+
+.AttendOwner:hover,
+.LikeOwner:hover {
+    color: #000000;
+}

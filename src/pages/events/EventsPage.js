@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Form, Row, Col, Container } from "react-bootstrap";
-// import Post from "./Post";
+import Event from "./Event";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
-import styles from "../../styles/PostsEventsPage.module.css";
+import styles from "../../styles/EventsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no_results.png";
@@ -60,8 +60,7 @@ function EventsPage({ message, filter = "" }) {
             {events.results.length ? (
               <InfiniteScroll
                 children={events.results.map((event) => (
-                  // <Post key={post.id} {...post} setPosts={setPosts} />
-                  <h1>Event</h1>
+                  <Event key={event.id} {...event} setEvents={setEvents} />
                 ))}
                 dataLength={events.results.length}
                 loader={<Asset spinner />}
