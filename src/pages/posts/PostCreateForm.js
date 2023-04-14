@@ -55,6 +55,7 @@ function PostCreateForm() {
 
     formData.append("title", title);
     formData.append("content", content);
+    formData.append("video", video);
     formData.append("image", imageInput.current.files[0]);
 
     try {
