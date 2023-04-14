@@ -44,23 +44,26 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/events"
       >
-        <i className="fa-solid fa-calendar"></i>Events
+        <i className="fa-solid fa-calendar"></i>
+        <span>Events</span>
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/chat"
       >
-        <i className="fa-solid fa-message"></i>Chat
+        <i className="fa-solid fa-message"></i>
+        <span>Chat</span>
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        <i className="fas fa-sign-out-alt"></i>
+        <span>Sign out</span>
       </NavLink>
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar src={currentUser?.profile_image} text={"Profile"} height={40} />
+        <Avatar src={currentUser?.profile_image} text={"Profile"} height={21} />
       </NavLink>
     </>
   );
