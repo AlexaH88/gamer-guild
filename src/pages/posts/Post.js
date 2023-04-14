@@ -80,10 +80,10 @@ const Post = (props) => {
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
-            {owner}
+            <span className={styles.Heading}>{owner}</span>
           </Link>
           <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
+            <span className={styles.Heading}>{updated_at}</span>
             {is_owner && postPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
