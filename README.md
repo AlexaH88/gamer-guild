@@ -341,16 +341,7 @@
 
 ### ***Fixed Bugs***
 
-<!-- - There was an issue on touchscreen devices regarding the hero images. When scrolling the image appeared to jump or zoom, creating a visually unappealing experience for the user. After trying various fixes, a solution was found on [Stack Overflow](https://stackoverflow.com/questions/20443574/fixed-background-image-with-ios7). The `background-attachment` on the hero image containers was set to scroll instead of fixed for mobile devices. The fixed `background-attachment` is not supported for mobile, which was causing this issue.
-
-- After having implemented the `slugify` function on the `song.title` in the `Song` model an error would appear in development but not in the deployed app:
-    - If a user tried to create a song with the same title, but not the same letter case, an error was thrown as the slug already existed, as it is always lowercase.
-    - The workaround was to add auto capitalization on the form on the CSS side, and `.title()` on a `save()` function within the Song model.
-    - An error message was also added to ensure the user receiving the appropriate feedback regarding an already existing title. 
-
-- The Delete Song form initially re-used the same template as the Edit Song page, meaning that although the requested song could indeed be deleted, there was also the possibility to users inputting new content into the pre-populated fields. This was fixed by implementing a non-editable form instead, by merely showing the song info, and keeping the delete button functionality.
-
-- When editing and deleting songs as a superuser, the exisitng edit and delete views, causing a somewhat illogical flow for the user as it rendered the My Songs page, having been on the Admin page. Conditional statements were included in these views to establish whether the user was a superuser or not and act accordingly. The My Songs page was also dropped for the superuser, to avoid the display of similar information and potentially causing confusion or overkill for the user.   -->
+<!-- - Initially liking, and commenting on both posts and events created issues. Likes and comments were unable to be created at all if no events existed, and once they did the likes and comments were applied to the event, as well as the post in question. The back-end API was not set up correctly to allow for interaction with either one or the other, and required one of each to be selected. + HOW DID I FIX... -->
 
 ### ***Known Bugs***
 
