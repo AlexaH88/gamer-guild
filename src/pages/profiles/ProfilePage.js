@@ -14,6 +14,7 @@ import {
 } from "../../contexts/ProfileDataContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
+import Event from "../events/Event";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no_results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
@@ -21,6 +22,7 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
+  const [profileEvents, setProfileEvents] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -34,16 +36,18 @@ function ProfilePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profilePosts }] =
+        const [{ data: pageProfile }, { data: profilePosts }, { data: profileEvents }] =
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
+            axiosReq.get(`/events/?owner__profile=${id}`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
+        setProfileEvents(profileEvents);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -158,6 +162,28 @@ function ProfilePage() {
     </>
   );
 
+  const mainProfileEvents = (
+    <>
+      <hr />
+      {profileEvents.results.length ? (
+        <InfiniteScroll
+          children={profileEvents.results.map((event) => (
+            <Event key={event.id} {...event} setEvents={setProfileEvents} />
+          ))}
+          dataLength={profileEvents.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileEvents.next}
+          next={() => fetchMoreData(profileEvents, setProfileEvents)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't created any events yet.`}
+        />
+      )}
+    </>
+  );
+
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -167,6 +193,7 @@ function ProfilePage() {
             <>
               {mainProfile}
               {mainProfilePosts}
+              {mainProfileEvents}
             </>
           ) : (
             <Asset spinner />
