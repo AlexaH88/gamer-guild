@@ -58,7 +58,7 @@ function App() {
           />
           <Route
             exact
-            path="/events/:id/create"
+            path="/events/create"
             render={() => <EventCreateForm />}
           />
           <Route exact path="/events/:id" render={() => <EventPage />} />

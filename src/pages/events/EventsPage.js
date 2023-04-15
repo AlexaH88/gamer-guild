@@ -10,17 +10,24 @@ import NoResults from "../../assets/no_results.png";
 import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import { Button } from "react-bootstrap";
+import btnStyles from "../../styles/Button.module.css";
+import { Link } from "react-router-dom";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function EventsPage({ message, filter = "" }) {
   const [events, setEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const { data } = await axiosReq.get(`/events/?${filter}search=${query}`);
+        const { data } = await axiosReq.get(
+          `/events/?${filter}search=${query}`
+        );
         setEvents(data);
         setHasLoaded(true);
       } catch (err) {
@@ -37,6 +44,16 @@ function EventsPage({ message, filter = "" }) {
       clearTimeout(timer);
     };
   }, [filter, query, pathname]);
+
+  const addEventButton = (
+    <Button
+      className={`${styles.Button} ${btnStyles.Button} ${btnStyles.Blue} ${btnStyles.Wide}`}
+      as={Link}
+      to="/events/create"
+    >
+      Add Event
+    </Button>
+  );
 
   return (
     <Row className="h-100">
@@ -80,6 +97,7 @@ function EventsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        {currentUser && addEventButton}
         <PopularProfiles />
       </Col>
     </Row>
