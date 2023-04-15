@@ -22,7 +22,7 @@ const Event = (props) => {
     content,
     image,
     updated_at,
-    postPage,
+    eventPage,
     setEvents,
   } = props;
 
@@ -117,7 +117,7 @@ const Event = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span className={styles.Heading}>{updated_at}</span>
-            {is_owner && postPage && (
+            {is_owner && eventPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
