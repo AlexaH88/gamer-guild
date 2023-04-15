@@ -3,6 +3,8 @@
     color: #242a3d;
     padding-left: 40px;
     margin-bottom: 16px;
+    height: 45.6px;
+    vertical-align: middle;
 }
 
 .SearchBar input:focus {
@@ -12,11 +14,16 @@
 .SearchIcon {
     position: absolute;
     font-size: 1.2rem;
-    padding: 9px;
+    padding: 12.5px;
     padding-left: 15px;
 }
 
 .SearchIcon:hover {
     cursor: default;
     color: #54d9ff;
+}
+
+.Button {
+    margin-bottom: 16px;
+    font-size: 1rem;
 }

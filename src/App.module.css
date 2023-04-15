@@ -14,6 +14,7 @@
     padding: 10px;
     border-radius: 2px;
     border: 1px solid #dadadf;
+    margin-bottom: 16px;
 }
 
 .Content h2 {
@@ -21,6 +22,7 @@
     color: #104b87;
     font-size: 22px;
     text-align: center;
+    margin: 0.5rem!important;
 }
 
 .FillerImage {

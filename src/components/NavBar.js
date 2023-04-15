@@ -25,18 +25,6 @@ const NavBar = () => {
     }
   };
 
-  const addPostIcon = (
-    <NavLink
-      exact
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/posts/create"
-    >
-      <i className="fas fa-plus-square" aria-hidden="true"></i>
-      <span>Add Post</span>
-    </NavLink>
-  );
-
   const loggedInIcons = (
     <>
       <NavLink
@@ -96,7 +84,6 @@ const NavBar = () => {
             <span>Gamer Guild</span>
           </Navbar.Brand>
         </NavLink>
-        {currentUser && addPostIcon}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
