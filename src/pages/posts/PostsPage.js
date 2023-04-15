@@ -43,6 +43,7 @@ function PostsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname]);
 
+  // code taken from whereisthemouse.com and adapted --> More info in README
   const addPostButton = (
     <Button
       className={`${styles.Button} ${btnStyles.Button} ${btnStyles.Blue} ${btnStyles.Wide}`}

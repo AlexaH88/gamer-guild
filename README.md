@@ -402,6 +402,8 @@ The site is now live and operational
   - [React Documentation](https://legacy.reactjs.org/docs/getting-started.html)
   - [React Bootstrap Documentation](https://react-bootstrap.github.io/getting-started/introduction)
 
+  - The handling internal links on `addPostButton` and `addEventButton` functionality was taken from [Where Is The Mouse](https://whereisthemouse.com/how-to-use-button-as-link-in-react) and adapted to suit the needs of this project.
+
 ### ***Content***
 
 - All text content was written by the site creator [Alexa Hendry](https://github.com/AlexaH88). 
