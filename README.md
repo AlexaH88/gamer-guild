@@ -343,6 +343,20 @@
 
 <!-- - Initially liking, and commenting on both posts and events created issues. Likes and comments were unable to be created at all if no events existed, and once they did the likes and comments were applied to the event, as well as the post in question. The back-end API was not set up correctly to allow for interaction with either one or the other, and required one of each to be selected. + HOW DID I FIX... -->
 
+-   #### Count Bug
+
+	- The likes, comments, attending counts on the post and event detail view were showing up incorrectly. A newly created post or event would show several likes, comments and attendees despite the fact that the back-end database correctly showed 0, as did the PostsPages and EventsPages.
+		- Detail View:
+		![Detail View](./docs/readme/images/testing/bug_counts_detail_view.png)
+    	- Database:
+    	![Database](./docs/readme/images/testing/bug_counts_database.png)
+
+	- This issue was fixed on the back-end by revising the EventDetail and PostDetail views to be specific to events and posts resepectively and not all the user's likes, comments etc.
+		- Original Code:
+    	![Original Code](./docs/readme/images/testing/bug_counts_original_code.png)
+    	- Fixed Code:
+    	![Fixed Code](./docs/readme/images/testing/bug_counts_fixed_code.png)
+
 ### ***Known Bugs***
 
 <!-- - Not a bug per se but something that decreases UX on the app is the mobile version of large data list of the songs. This is mentioned in future implementations and is to be improved upon.  -->
