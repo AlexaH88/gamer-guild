@@ -36,12 +36,15 @@ function ProfilePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profilePosts }, { data: profileEvents }] =
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/posts/?owner__profile=${id}`),
-            axiosReq.get(`/events/?owner__profile=${id}`),
-          ]);
+        const [
+          { data: pageProfile },
+          { data: profilePosts },
+          { data: profileEvents },
+        ] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/posts/?owner__profile=${id}`),
+          axiosReq.get(`/events/?owner__profile=${id}`),
+        ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
@@ -102,18 +105,22 @@ function ProfilePage() {
               </a>
             )}
           </Row>
-          <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
-              <div>{profile?.posts_count}</div>
+          <Row className="mt-2 justify-content-space-between">
+            <Col className="my-2">
               <div>posts</div>
+              <div className={styles.Count}>{profile?.posts_count}</div>
             </Col>
-            <Col xs={3} className="my-2">
-              <div>{profile?.followers_count}</div>
+            <Col className="my-2">
+              <div>events</div>
+              <div className={styles.Count}>{profile?.events_count}</div>
+            </Col>
+            <Col className="my-2">
               <div>followers</div>
+              <div className={styles.Count}>{profile?.followers_count}</div>
             </Col>
-            <Col xs={3} className="my-2">
-              <div>{profile?.following_count}</div>
+            <Col className="my-2">
               <div>following</div>
+              <div className={styles.Count}>{profile?.following_count}</div>
             </Col>
           </Row>
         </Col>
