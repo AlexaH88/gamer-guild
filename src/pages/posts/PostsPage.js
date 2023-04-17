@@ -10,10 +10,8 @@ import NoResults from "../../assets/no_results.png";
 import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import { Button } from "react-bootstrap";
-import btnStyles from "../../styles/Button.module.css";
-import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import AddContentButton from "../../components/AddContentButton";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -42,17 +40,6 @@ function PostsPage({ message, filter = "" }) {
       clearTimeout(timer);
     };
   }, [filter, query, pathname]);
-
-  // code taken from whereisthemouse.com and adapted --> More info in README
-  const addPostButton = (
-    <Button
-      className={`${styles.Button} ${btnStyles.Button} ${btnStyles.Blue} ${btnStyles.Wide}`}
-      as={Link}
-      to="/posts/create"
-    >
-      Add Post
-    </Button>
-  );
 
   return (
     <Row className="h-100">
@@ -96,7 +83,7 @@ function PostsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        {currentUser && addPostButton}
+        {currentUser && <AddContentButton url="/posts/create" text="Add Post" />}
         <PopularProfiles />
       </Col>
     </Row>

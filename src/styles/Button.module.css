@@ -49,3 +49,8 @@
     background-color: #54d9ff;
     color: #104b87;
 }
+
+.AddContentButton {
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
