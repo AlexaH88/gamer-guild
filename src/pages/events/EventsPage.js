@@ -14,6 +14,7 @@ import { Button } from "react-bootstrap";
 import btnStyles from "../../styles/Button.module.css";
 import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import AddContentButton from "../../components/AddContentButton";
 
 function EventsPage({ message, filter = "" }) {
   const [events, setEvents] = useState({ results: [] });
@@ -44,17 +45,6 @@ function EventsPage({ message, filter = "" }) {
       clearTimeout(timer);
     };
   }, [filter, query, pathname]);
-
-  // code taken from whereisthemouse.com and adapted --> More info in README
-  const addEventButton = (
-    <Button
-      className={`${styles.Button} ${btnStyles.Button} ${btnStyles.Blue} ${btnStyles.Wide}`}
-      as={Link}
-      to="/events/create"
-    >
-      Add Event
-    </Button>
-  );
 
   return (
     <Row className="h-100">
@@ -98,7 +88,7 @@ function EventsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        {currentUser && addEventButton}
+        {currentUser && <AddContentButton url="/events/create" text="Add Event" />}
         <PopularProfiles />
       </Col>
     </Row>

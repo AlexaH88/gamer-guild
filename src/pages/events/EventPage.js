@@ -11,6 +11,7 @@ import Comment from "../comments/Comment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import AddContentButton from "../../components/AddContentButton";
 
 function EventPage() {
   const { id } = useParams();
@@ -76,6 +77,7 @@ function EventPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+        {currentUser && <AddContentButton url="/events/create" text="Add Event" />}
         <PopularProfiles />
       </Col>
     </Row>
