@@ -138,22 +138,22 @@ const Event = (props) => {
               placement="top"
               overlay={<Tooltip>You can't like your own event!</Tooltip>}
             >
-              <i className={`fa-solid fa-thumbs-up ${styles.LikeOwner}`} />
+              <i className={`fa-solid fa-thumbs-up ${styles.LikeImpossible}`} />
             </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
-              <i className="fa-solid fa-thumbs-up" />
+              <i className={`fa-solid fa-thumbs-up ${styles.Liked}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleLike}>
-              <i className="fa-solid fa-thumbs-up" />
+              <i className={`fa-solid fa-thumbs-up ${styles.UnLiked}`} />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to like events!</Tooltip>}
             >
-              <i className={`fa-solid fa-thumbs-up ${styles.LikeOwner}`} />
+              <i className={`fa-solid fa-thumbs-up ${styles.LikeImpossible}`} />
             </OverlayTrigger>
           )}
           {likes_count}
@@ -167,16 +167,16 @@ const Event = (props) => {
               overlay={<Tooltip>You can't attend your own event!</Tooltip>}
             >
               <i
-                className={`fa-solid fa-calendar-check ${styles.AttendOwner}`}
+                className={`fa-solid fa-calendar-check ${styles.AttendImpossible}`}
               />
             </OverlayTrigger>
           ) : attend_id ? (
             <span onClick={handleUnattend}>
-              <i className="fa-solid fa-calendar-check" />
+              <i className={`fa-solid fa-calendar-check ${styles.Attended}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleAttend}>
-              <i className="fa-solid fa-calendar-check" />
+              <i className={`fa-solid fa-calendar-check ${styles.UnAttended}`} />
             </span>
           ) : (
             <OverlayTrigger
@@ -184,7 +184,7 @@ const Event = (props) => {
               overlay={<Tooltip>Log in to attend events!</Tooltip>}
             >
               <i
-                className={`fa-solid fa-calendar-check ${styles.AttendOwner}`}
+                className={`fa-solid fa-calendar-check ${styles.AttendImpossible}`}
               />
             </OverlayTrigger>
           )}

@@ -22,10 +22,14 @@ h5 {
     font-weight: bold;
 }
 
-.LikeOwner {
-    color: #104b87;
+.LikeImpossible:hover {
+    color: #000000;
 }
 
-.LikeOwner:hover {
-    color: #000000;
+.Liked {
+    color: #54d9ff;
+}
+
+.UnLiked {
+    color: #104b87;
 }

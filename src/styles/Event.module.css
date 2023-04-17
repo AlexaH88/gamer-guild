@@ -22,12 +22,17 @@ h5 {
     font-weight: bold;
 }
 
-.AttendOwner,
-.LikeOwner {
-    color: #104b87;
+.LikeImpossible:hover,
+.AttendImpossible:hover {
+    color: #000000;
 }
 
-.AttendOwner:hover,
-.LikeOwner:hover {
-    color: #000000;
+.Liked,
+.Attended {
+    color: #54d9ff;
+}
+
+.UnLiked,
+.UnAttended {
+    color: #104b87;
 }
