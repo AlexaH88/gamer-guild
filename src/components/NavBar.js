@@ -6,7 +6,6 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
@@ -43,7 +42,8 @@ const NavBar = () => {
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar src={currentUser?.profile_image} text={"Profile"} height={21} />
+        <i class="fa-solid fa-ghost"></i>
+        <span>{currentUser?.username}</span>
       </NavLink>
     </>
   );
