@@ -41,6 +41,7 @@ function EventPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
+        {currentUser && <AddContentButton url="/events/create" text="Add Event" mobile />}
         <Event {...event.results[0]} setEvents={setEvent} eventPage />
         <Container className={appStyles.Content}>
           {currentUser ? (

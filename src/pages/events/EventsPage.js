@@ -10,9 +10,6 @@ import NoResults from "../../assets/no_results.png";
 import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import { Button } from "react-bootstrap";
-import btnStyles from "../../styles/Button.module.css";
-import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import AddContentButton from "../../components/AddContentButton";
 
@@ -50,6 +47,7 @@ function EventsPage({ message, filter = "" }) {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
+        {currentUser && <AddContentButton url="/events/create" text="Add Event" mobile />}
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
