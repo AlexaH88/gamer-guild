@@ -5,9 +5,11 @@ import Asset from "../../components/Asset";
 import styles from "../../styles/GroupPage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+// import PopularGroups from "./PopularGroups";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { useGroupData, useSetGroupData } from "../../contexts/GroupDataContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Event from "../events/Event";
 import { fetchMoreData } from "../../utils/utils";
@@ -16,48 +18,50 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 
 function GroupPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [group, setGroups] = useState({ results: [] });
-  const [event, setEvents] = useState({ results: [] });
+  const [events, setEvents] = useState({ results: [] });
+
   const currentUser = useCurrentUser();
-  const { id } = useParams();
   const history = useHistory();
+  const { id } = useParams();
 
-  // const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
-  // const { pageProfile } = useProfileData();
+  const { setGroupData, handleJoin, handleUnjoin } = useSetGroupData();
+  const { pageGroup } = useGroupData();
 
-  // const [profile] = pageProfile.results;
+  const [group] = pageGroup.results;
   const is_owner = currentUser?.username === group?.owner;
 
-  const handleEdit = () => {
-    history.push(`/events/${id}/edit`);
-  };
-
-  const handleDelete = async () => {
-    try {
-      await axiosRes.delete(`/events/${id}/`);
-      history.goBack();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
-    const handleMount = async () => {
+    const fetchData = async () => {
       try {
-        const [{ data: group }, { data: event }] = await Promise.all([
+        const [{ data: pageGroup }, { data: events }] = await Promise.all([
           axiosReq.get(`/groups/${id}/`),
-          axiosReq.get(`/events/`),
-          // axiosReq.get(`/events/?owner__profile=${id}`),
+          axiosReq.get(`/events/?owner__profile=${id}`),
         ]);
-        setGroups({ results: [group] });
-        setEvents(event);
+        setGroupData((prevState) => ({
+          ...prevState,
+          pageGroup: { results: [pageGroup] },
+        }));
+        setEvents(events);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }
     };
-    handleMount();
-  }, [id]);
+    fetchData();
+  }, [id, setGroupData]);
+
+  const handleEdit = () => {
+    history.push(`/groups/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/groups/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const mainGroup = (
     <>
@@ -73,27 +77,26 @@ function GroupPage() {
           />
         </Col>
         <Col lg={6}>
-          <h2 className="m-2">{group?.name}</h2>
-          {group?.about && <Col className="p-3">{group.about}</Col>}
-          {group?.owner && <Col className="p-3">{group.owner}</Col>}
+          <h2 className="m-2">{group?.owner}</h2>
+          {group?.content && <Col className="p-3">{group.content}</Col>}
           <Row className="justify-content-center no-gutters">
-            {group?.website && (
-              <a href={group?.website}>
+            {group?.location && (
+              <a href={group?.location}>
                 <i className="fa-brands fa-xbox" aria-hidden="true"></i>
               </a>
             )}
-            {group?.location && (
-              <a href={group?.location}>
+            {group?.website && (
+              <a href={group?.website}>
                 <i className="fa-brands fa-playstation" aria-hidden="true"></i>
-              </a>
-            )}
-            {group?.phone && (
-              <a href={group?.phone}>
-                <i className="fa-brands fa-steam" aria-hidden="true"></i>
               </a>
             )}
             {group?.email && (
               <a href={group?.email}>
+                <i className="fa-brands fa-steam" aria-hidden="true"></i>
+              </a>
+            )}
+            {group?.phone && (
+              <a href={group?.phone}>
                 <i className="fa-brands fa-discord" aria-hidden="true"></i>
               </a>
             )}
@@ -112,19 +115,19 @@ function GroupPage() {
         <Col lg={3} className="text-lg-right">
           {currentUser &&
             !is_owner &&
-            (group?.following_id ? (
+            (group?.member_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
-                // onClick={() => handleUnfollow(group)}
+                onClick={() => handleUnjoin(group)}
               >
-                unfollow
+                unjoin
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                // onClick={() => handleFollow(group)}
+                onClick={() => handleJoin(group)}
               >
-                follow
+                join
               </Button>
             ))}
         </Col>
@@ -135,15 +138,15 @@ function GroupPage() {
   const mainGroupEvents = (
     <>
       <hr />
-      {event.results.length ? (
+      {events.results.length ? (
         <InfiniteScroll
-          children={event.results.map((event) => (
+          children={events.results.map((event) => (
             <Event key={event.id} {...event} setEvents={setEvents} />
           ))}
-          dataLength={event.results.length}
+          dataLength={events.results.length}
           loader={<Asset spinner />}
-          hasMore={!!event.next}
-          next={() => fetchMoreData(event, setEvents)}
+          hasMore={!!events.next}
+          next={() => fetchMoreData(events, setEvents)}
         />
       ) : (
         <Asset
@@ -157,7 +160,7 @@ function GroupPage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <h2>Popular Groups mobile</h2>
+        {/* <PopularGroups mobile /> */}
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -170,7 +173,7 @@ function GroupPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <h2>Popular Groups</h2>
+        {/* <PopularGroups /> */}
       </Col>
     </Row>
   );

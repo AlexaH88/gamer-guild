@@ -56,7 +56,7 @@ export const GroupDataProvider = ({ children }) => {
         popularGroups: {
           ...prevState.popularGroups,
           results: prevState.popularGroups.results.map((group) =>
-            unfollowHelper(group, clickedGroup)
+            unjoinHelper(group, clickedGroup)
           ),
         },
       }));
