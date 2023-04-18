@@ -103,6 +103,14 @@ const NavBar = () => {
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
+              to="/groups"
+            >
+              <i className="fa-solid fa-people-group"></i>
+              <span>Groups</span>
+            </NavLink>
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.Active}
               to="/events"
             >
               <i className="fa-solid fa-calendar"></i>
