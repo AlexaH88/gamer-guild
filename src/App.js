@@ -6,18 +6,23 @@ import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
-import PostsPage from "./pages/posts/PostsPage";
-import PostCreateForm from "./pages/posts/PostCreateForm";
-import PostPage from "./pages/posts/PostPage";
-import PostEditForm from "./pages/posts/PostEditForm";
-import EventsPage from "./pages/events/EventsPage";
-import EventCreateForm from "./pages/events/EventCreateForm";
-import EventPage from "./pages/events/EventPage";
-import EventEditForm from "./pages/events/EventEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import PostsPage from "./pages/posts/PostsPage";
+import PostCreateForm from "./pages/posts/PostCreateForm";
+import PostPage from "./pages/posts/PostPage";
+import PostEditForm from "./pages/posts/PostEditForm";
+// import GroupsPage from "./pages/groups/GroupsPage";
+// import GroupCreateForm from "./pages/groups/GroupCreateForm";
+import GroupPage from "./pages/groups/GroupPage";
+// import GroupEditForm from "./pages/groups/GroupEditForm";
+import EventsPage from "./pages/events/EventsPage";
+import EventCreateForm from "./pages/events/EventCreateForm";
+import EventPage from "./pages/events/EventPage";
+import EventEditForm from "./pages/events/EventEditForm";
+
 
 function App() {
   const currentUser = useCurrentUser();
@@ -31,6 +36,23 @@ function App() {
           {/* auth */}
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
+          {/* profiles */}
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           {/* posts */}
           <Route
             exact
@@ -45,6 +67,19 @@ function App() {
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
+          {/* groups */}
+          <Route exact path="/groups" render={() => <h1>Groups Page</h1>} />
+          <Route
+            exact
+            path="/groups/create"
+            render={() => <h1>Group Create Form</h1>}
+          />
+          <Route exact path="/groups/:id" render={() => <GroupPage />} />
+          <Route
+            exact
+            path="/groups/:id/edit"
+            render={() => <h1>Group Edit Form</h1>}
+          />
           {/* events */}
           <Route
             exact
@@ -69,23 +104,6 @@ function App() {
           />
           {/* chat */}
           <Route exact path="/chat" render={() => <h1>Chat Page</h1>} />
-          {/* profiles */}
-          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route
-            exact
-            path="/profiles/:id/edit/username"
-            render={() => <UsernameForm />}
-          />
-          <Route
-            exact
-            path="/profiles/:id/edit/password"
-            render={() => <UserPasswordForm />}
-          />
-          <Route
-            exact
-            path="/profiles/:id/edit"
-            render={() => <ProfileEditForm />}
-          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

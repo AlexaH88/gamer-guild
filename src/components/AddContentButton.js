@@ -17,7 +17,7 @@ const AddContentButton = ({ url, text, mobile }) => {
         </Button>
       ) : (
         <Button
-          className={`d-none d-lg-block p-0 p-lg-2 ${btnStyles.AddContentButton} ${btnStyles.Button} ${btnStyles.Blue} ${btnStyles.Wide}`}
+          className={`${btnStyles.AddContentButton} ${btnStyles.Button} ${btnStyles.Blue} ${btnStyles.Wide}`}
           as={Link}
           to={url}
         >

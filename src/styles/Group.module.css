@@ -1,0 +1,23 @@
+.Group {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.Group figure,
+h5 {
+    margin: 0 0;
+}
+
+.GroupBar {
+    border-top: 1px solid #dadadf;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.Heading {
+    color: #104b87;
+    font-weight: bold;
+}
