@@ -50,3 +50,31 @@ export const unfollowHelper = (profile, clickedProfile) => {
       // the user owns, so just return it unchanged
       profile;
 };
+
+export const joinHelper = (group, clickedGroup, member_id) => {
+  return group.id === clickedGroup.id
+    ? // This is the group I clicked on,
+      // update its members count and set its member id
+      {
+        ...group,
+        members_count: group.members_count + 1,
+        member_id,
+      }
+    : // this is not the group the user clicked on,
+      // so just return it unchanged
+      group;
+};
+
+export const unjoinHelper = (group, clickedGroup) => {
+  return group.id === clickedGroup.id
+    ? // This is the group I clicked on,
+      // update its members count and set its members id
+      {
+        ...group,
+        members_count: group.members_count - 1,
+        member_id: null,
+      }
+    : // this is not the group the user clicked,
+      // so just return it unchanged
+      group;
+};

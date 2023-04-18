@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Container, Button, Image } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import Asset from "../../components/Asset";
 import styles from "../../styles/GroupPage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Event from "../events/Event";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no_results.png";
-// import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 function GroupPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -19,39 +20,50 @@ function GroupPage() {
   const [event, setEvents] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const { id } = useParams();
+  const history = useHistory();
 
   // const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   // const { pageProfile } = useProfileData();
 
   // const [profile] = pageProfile.results;
-  // const is_owner = currentUser?.username === profile?.owner;
+  const is_owner = currentUser?.username === group?.owner;
+
+  const handleEdit = () => {
+    history.push(`/events/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/events/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const handleMount = async () => {
       try {
-        const [
-          { data: group },
-          { data: event },
-        ] = await Promise.all([
+        const [{ data: group }, { data: event }] = await Promise.all([
           axiosReq.get(`/groups/${id}/`),
-          axiosReq.get(`/events/?owner__profile=${id}`),
+          axiosReq.get(`/events/`),
+          // axiosReq.get(`/events/?owner__profile=${id}`),
         ]);
-        setProfileData((prevState) => ({
-          ...prevState,
-          pageProfile: { results: [pageProfile] },
-        }));
+        setGroups({ results: [group] });
         setEvents(event);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }
     };
-    fetchData();
-  }, [id, setProfileData]);
+    handleMount();
+  }, [id]);
 
   const mainGroup = (
     <>
-      {group?.is_owner && <ProfileEditDropdown id={group?.id} />}
+      {group?.is_owner && (
+        <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
+      )}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -103,14 +115,14 @@ function GroupPage() {
             (group?.following_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlueOutline}`}
-                onClick={() => handleUnfollow(group)}
+                // onClick={() => handleUnfollow(group)}
               >
                 unfollow
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                onClick={() => handleFollow(group)}
+                // onClick={() => handleFollow(group)}
               >
                 follow
               </Button>

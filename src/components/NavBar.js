@@ -34,16 +34,16 @@ const NavBar = () => {
         <i className="fa-solid fa-message"></i>
         <span>Chat</span>
       </NavLink>
-      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>
-        <span>Sign out</span>
-      </NavLink>
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <i class="fa-solid fa-ghost"></i>
         <span>{currentUser?.username}</span>
+      </NavLink>
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>
+        <span>Sign out</span>
       </NavLink>
     </>
   );
