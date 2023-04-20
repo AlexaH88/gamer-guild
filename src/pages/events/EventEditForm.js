@@ -18,11 +18,17 @@ function EventEditForm() {
   const [errors, setErrors] = useState({});
 
   const [eventData, setEventData] = useState({
-    title: "",
-    content: "",
+    name: "",
+    about: "",
     image: "",
+    platform: "",
+    date: "",
+    time: "",
+    duration: "",
+    location: "",
   });
-  const { title, content, image } = eventData;
+  const { name, about, image, platform, date, time, duration, location } =
+    eventData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -32,9 +38,30 @@ function EventEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/events/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const {
+          name,
+          about,
+          image,
+          platform,
+          date,
+          time,
+          duration,
+          location,
+          is_owner,
+        } = data;
 
-        is_owner ? setEventData({ title, content, image }) : history.push("/");
+        is_owner
+          ? setEventData({
+              name,
+              about,
+              image,
+              platform,
+              date,
+              time,
+              duration,
+              location,
+            })
+          : history.push("/");
       } catch (err) {
         console.log(err);
       }
@@ -64,8 +91,14 @@ function EventEditForm() {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("content", content);
+    formData.append("name", name);
+    formData.append("about", about);
+    formData.append("image", imageInput.current.files[0]);
+    formData.append("platform", platform);
+    formData.append("date", date);
+    formData.append("time", time);
+    formData.append("duration", duration);
+    formData.append("location", location);
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -85,31 +118,100 @@ function EventEditForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
-          name="title"
-          value={title}
+          name="name"
+          value={name}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.title?.map((message, idx) => (
+      {errors?.name?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
-
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>About</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
-          name="content"
-          value={content}
+          name="about"
+          value={about}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.about?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Date</Form.Label>
+        <Form.Control
+          type="date"
+          name="date"
+          value={date}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.date?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Time</Form.Label>
+        <Form.Control
+          type="time"
+          name="time"
+          value={time}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.time?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Duration (in minutes)</Form.Label>
+        <Form.Control
+          type="number"
+          name="duration"
+          value={duration}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.duration?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Platform URL</Form.Label>
+        <Form.Control
+          type="url"
+          name="platform"
+          value={platform}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.platform?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Location</Form.Label>
+        <Form.Control
+          type="text"
+          name="location"
+          value={location}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.location?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

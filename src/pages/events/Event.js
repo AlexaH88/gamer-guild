@@ -1,7 +1,14 @@
 import React from "react";
 import styles from "../../styles/Event.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Card,
+  ListGroup,
+  ListGroupItem,
+  Media,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -18,9 +25,14 @@ const Event = (props) => {
     attendees_count,
     like_id,
     attend_id,
-    title,
-    content,
+    name,
+    about,
     image,
+    platform,
+    date,
+    time,
+    duration,
+    location,
     updated_at,
     eventPage,
     setEvents,
@@ -82,7 +94,11 @@ const Event = (props) => {
         ...prevEvents,
         results: prevEvents.results.map((event) => {
           return event.id === id
-            ? { ...event, attendees_count: event.attendees_count + 1, attend_id: data.id }
+            ? {
+                ...event,
+                attendees_count: event.attendees_count + 1,
+                attend_id: data.id,
+              }
             : event;
         }),
       }));
@@ -98,7 +114,11 @@ const Event = (props) => {
         ...prevEvents,
         results: prevEvents.results.map((event) => {
           return event.id === id
-            ? { ...event, attendees_count: event.attendees_count - 1, attend_id: null }
+            ? {
+                ...event,
+                attendees_count: event.attendees_count - 1,
+                attend_id: null,
+              }
             : event;
         }),
       }));
@@ -127,11 +147,20 @@ const Event = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/events/${id}`}>
-        <Card.Img src={image} alt={title} />
+        <Card.Img src={image} alt={name} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
+        {name && <Card.Title className="text-center">{name}</Card.Title>}
+        {about && <Card.Text>{about}</Card.Text>}
+        <ListGroup>
+          {date && <ListGroupItem>{date}</ListGroupItem>}
+          {time && <ListGroupItem>{time}</ListGroupItem>}
+          {duration && <ListGroupItem>{duration}</ListGroupItem>}
+        </ListGroup>
+        <ListGroup>
+          {platform && <ListGroupItem>{platform}</ListGroupItem>}
+          {location && <ListGroupItem>{location}</ListGroupItem>}
+        </ListGroup>
         <div className={styles.EventBar}>
           {is_owner ? (
             <OverlayTrigger
@@ -176,7 +205,9 @@ const Event = (props) => {
             </span>
           ) : currentUser ? (
             <span onClick={handleAttend}>
-              <i className={`fa-solid fa-calendar-check ${styles.UnAttended}`} />
+              <i
+                className={`fa-solid fa-calendar-check ${styles.UnAttended}`}
+              />
             </span>
           ) : (
             <OverlayTrigger
