@@ -30,8 +30,8 @@ const Event = (props) => {
     image,
     platform,
     date,
-    time,
-    duration,
+    start_time,
+    end_time,
     location,
     updated_at,
     eventPage,
@@ -154,8 +154,8 @@ const Event = (props) => {
         {about && <Card.Text>{about}</Card.Text>}
         <ListGroup>
           {date && <ListGroupItem>{date}</ListGroupItem>}
-          {time && <ListGroupItem>{time}</ListGroupItem>}
-          {duration && <ListGroupItem>{duration}</ListGroupItem>}
+          {start_time && <ListGroupItem>{start_time}</ListGroupItem>}
+          {end_time && <ListGroupItem>{end_time}</ListGroupItem>}
         </ListGroup>
         <ListGroup>
           {platform && <ListGroupItem>{platform}</ListGroupItem>}

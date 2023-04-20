@@ -27,11 +27,11 @@ function EventCreateForm() {
     image: "",
     platform: "",
     date: "",
-    time: "",
-    duration: "",
+    start_time: "",
+    end_time: "",
     location: "",
   });
-  const { name, about, image, platform, date, time, duration, location } =
+  const { name, about, image, platform, date, start_time, end_time, location } =
     eventData;
 
   const imageInput = useRef(null);
@@ -63,8 +63,8 @@ function EventCreateForm() {
     formData.append("image", imageInput.current.files[0]);
     formData.append("platform", platform);
     formData.append("date", date);
-    formData.append("time", time);
-    formData.append("duration", duration);
+    formData.append("start_time", start_time);
+    formData.append("end_time", end_time);
     formData.append("location", location);
 
     try {
@@ -124,29 +124,29 @@ function EventCreateForm() {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Time</Form.Label>
+        <Form.Label>Start Time</Form.Label>
         <Form.Control
           type="time"
-          name="time"
-          value={time}
+          name="start_time"
+          value={start_time}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.time?.map((message, idx) => (
+      {errors?.start_time?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Duration (in minutes)</Form.Label>
+        <Form.Label>End Time</Form.Label>
         <Form.Control
-          type="number"
-          name="duration"
-          value={duration}
+          type="time"
+          name="end_time"
+          value={end_time}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.duration?.map((message, idx) => (
+      {errors?.end_time?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
