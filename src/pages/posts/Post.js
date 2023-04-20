@@ -80,10 +80,10 @@ const Post = (props) => {
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
-            <span className={styles.Heading}>{owner}</span>
+            <span>{owner}</span>
           </Link>
           <div className="d-flex align-items-center">
-            <span className={styles.Heading}>{updated_at}</span>
+            <span>{updated_at}</span>
             {is_owner && postPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
@@ -97,7 +97,11 @@ const Post = (props) => {
         <Card.Img src={image} alt={title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {title && (
+          <Card.Title className={`text-center ${styles.Heading}`}>
+            {title}
+          </Card.Title>
+        )}
         {content && <Card.Text>{content}</Card.Text>}
         {video && <Card.Link href={video}>{video}</Card.Link>}
         <div className={styles.PostBar}>
