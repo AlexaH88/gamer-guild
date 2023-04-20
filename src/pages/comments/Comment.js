@@ -17,6 +17,7 @@ const Comment = (props) => {
     content,
     id,
     setPost,
+    setEvent,
     setComments,
   } = props;
 
@@ -32,6 +33,14 @@ const Comment = (props) => {
           {
             ...prevPost.results[0],
             comments_count: prevPost.results[0].comments_count - 1,
+          },
+        ],
+      }));
+      setEvent((prevEvent) => ({
+        results: [
+          {
+            ...prevEvent.results[0],
+            comments_count: prevEvent.results[0].comments_count - 1,
           },
         ],
       }));

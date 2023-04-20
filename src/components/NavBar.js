@@ -14,7 +14,6 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser();
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
-
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -38,7 +37,7 @@ const NavBar = () => {
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <i class="fa-solid fa-ghost"></i>
+        <i className="fa-solid fa-ghost"></i>
         <span>{currentUser?.username}</span>
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
