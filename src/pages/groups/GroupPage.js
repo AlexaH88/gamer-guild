@@ -35,7 +35,7 @@ function GroupPage() {
       try {
         const [{ data: pageGroup }, { data: events }] = await Promise.all([
           axiosReq.get(`/groups/${id}/`),
-          axiosReq.get(`/events/?owner__profile=${id}`),
+          // axiosReq.get(`/events/?owner__profile=${id}`),
         ]);
         setGroupData((prevState) => ({
           ...prevState,

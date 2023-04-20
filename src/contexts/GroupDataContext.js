@@ -69,7 +69,7 @@ export const GroupDataProvider = ({ children }) => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
-          "/groups/?ordering=-member_count"
+          "/groups/?ordering=-members_count"
         );
         setGroupData((prevState) => ({
           ...prevState,
