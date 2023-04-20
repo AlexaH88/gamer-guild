@@ -145,21 +145,21 @@ const Event = (props) => {
             )}
           </div>
         </Media>
+      <Card.Body>
+        {name && <Card.Title className="text-center">{name}</Card.Title>}
+        {about && <Card.Text>{about}</Card.Text>}
+      </Card.Body>
       </Card.Body>
       <Link to={`/events/${id}`}>
         <Card.Img src={image} alt={name} />
       </Link>
       <Card.Body>
-        {name && <Card.Title className="text-center">{name}</Card.Title>}
-        {about && <Card.Text>{about}</Card.Text>}
         <ListGroup>
-          {date && <ListGroupItem>{date}</ListGroupItem>}
-          {start_time && <ListGroupItem>{start_time}</ListGroupItem>}
-          {end_time && <ListGroupItem>{end_time}</ListGroupItem>}
-        </ListGroup>
-        <ListGroup>
-          {platform && <ListGroupItem>{platform}</ListGroupItem>}
-          {location && <ListGroupItem>{location}</ListGroupItem>}
+          {date && <ListGroupItem><span className={styles.EventInfo}>When:</span> {date}</ListGroupItem>}
+          {start_time && <ListGroupItem><span className={styles.EventInfo}>Start Time:</span> {start_time}</ListGroupItem>}
+          {end_time && <ListGroupItem><span className={styles.EventInfo}>End Time:</span> {end_time}</ListGroupItem>}
+          {location && <ListGroupItem><span className={styles.EventInfo}>Where (in person):</span> {location}</ListGroupItem>}
+          {platform && <ListGroupItem><span className={styles.EventInfo}>Where (virtual):</span> <Card.Link href={platform}>{platform}</Card.Link></ListGroupItem>}
         </ListGroup>
         <div className={styles.EventBar}>
           {is_owner ? (

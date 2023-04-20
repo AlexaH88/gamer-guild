@@ -17,6 +17,11 @@ h5 {
     padding-top: 10px;
 }
 
+.EventInfo {
+    font-weight: bold;
+    color: #104b87;
+}
+
 .Heading {
     color: #104b87;
     font-weight: bold;
