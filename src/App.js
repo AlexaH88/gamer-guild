@@ -14,10 +14,6 @@ import PostsPage from "./pages/posts/PostsPage";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostEditForm from "./pages/posts/PostEditForm";
-// import GroupsPage from "./pages/groups/GroupsPage";
-// import GroupCreateForm from "./pages/groups/GroupCreateForm";
-import GroupPage from "./pages/groups/GroupPage";
-// import GroupEditForm from "./pages/groups/GroupEditForm";
 import EventsPage from "./pages/events/EventsPage";
 import EventCreateForm from "./pages/events/EventCreateForm";
 import EventPage from "./pages/events/EventPage";
@@ -67,19 +63,6 @@ function App() {
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          {/* groups */}
-          <Route exact path="/groups" render={() => <h1>Groups Page</h1>} />
-          <Route
-            exact
-            path="/groups/create"
-            render={() => <h1>Group Create Form</h1>}
-          />
-          <Route exact path="/groups/:id" render={() => <GroupPage />} />
-          <Route
-            exact
-            path="/groups/:id/edit"
-            render={() => <h1>Group Edit Form</h1>}
-          />
           {/* events */}
           <Route
             exact
