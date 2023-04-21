@@ -27,14 +27,6 @@ const NavBar = () => {
     <>
       <NavLink
         className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/chat"
-      >
-        <i className="fa-solid fa-message"></i>
-        <span>Chat</span>
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <i className="fa-solid fa-ghost"></i>

@@ -85,8 +85,6 @@ function App() {
             path="/events/:id/edit"
             render={() => <EventEditForm />}
           />
-          {/* chat */}
-          <Route exact path="/chat" render={() => <h1>Chat Page</h1>} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
