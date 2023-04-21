@@ -104,7 +104,7 @@ const Event = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Card.Body>
+      <Card.Body className="pt-0">
         {name && (
           <Card.Title className={`text-center ${styles.Heading}`}>
             {name}
