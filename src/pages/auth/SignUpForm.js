@@ -14,6 +14,7 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
+import FillerImage from "../../components/FillerImage";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
@@ -127,17 +128,7 @@ const SignUpForm = () => {
           </Link>
         </Container>
       </Col>
-      <Col
-        md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
-      >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={
-            "https://res.cloudinary.com/dfgylv4o2/image/upload/v1681242417/hero_insert_coin_aynmjq.png"
-          }
-        />
-      </Col>
+      <FillerImage style={styles.SignUpCol} src="https://res.cloudinary.com/dfgylv4o2/image/upload/v1681242417/hero_insert_coin_aynmjq.png" />
     </Row>
   );
 };

@@ -15,6 +15,7 @@ import {
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import FillerImage from "../../components/FillerImage";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -114,17 +115,7 @@ function SignInForm() {
         </Container>
 
       </Col>
-      <Col
-        md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
-      >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={
-            "https://res.cloudinary.com/dfgylv4o2/image/upload/v1681242410/hero_game_on_wrrd8e.png"
-          }
-        />
-      </Col>
+      <FillerImage style={styles.SignInCol} src="https://res.cloudinary.com/dfgylv4o2/image/upload/v1681242410/hero_game_on_wrrd8e.png"/>
     </Row>
   );
 };
