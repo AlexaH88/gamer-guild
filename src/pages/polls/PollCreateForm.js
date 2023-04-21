@@ -7,25 +7,22 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 function PollCreateForm(props) {
   const {
-    event,
     setEvent,
     setPolls,
     profileImage,
     profile_id,
-    content_choices,
   } = props;
-  const [content, setContent] = useState("");
+  const [response, setResponse] = useState("");
 
   const handleChange = (event) => {
-    setContent(event.target.value);
+    setResponse(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/polls/", {
-        content,
-        content_choices,
+        response,
         event,
       });
       setPolls((prevPolls) => ({
@@ -40,7 +37,7 @@ function PollCreateForm(props) {
           },
         ],
       }));
-      setContent("");
+      setResponse("");
     } catch (err) {
       console.log(err);
     }
@@ -62,19 +59,20 @@ function PollCreateForm(props) {
           <Form.Control
             id="poll"
             as="select"
+            name="response"
             className={styles.Form}
-            value={content.content_choices}
+            value={response}
             onChange={handleChange}
           >
-            <option>Definitely</option>
-            <option>Meh</option>
-            <option>Hell no</option>
+            <option label="yes">Yes</option>
+            <option label="maybe">Maybe</option>
+            <option label="no">No</option>
           </Form.Control>
         </InputGroup>
       </Form.Group>
       <button
         className={`${styles.Button} d-block ml-auto`}
-        disabled={!content.trim()}
+        disabled={!response.trim()}
         type="submit"
       >
         submit
