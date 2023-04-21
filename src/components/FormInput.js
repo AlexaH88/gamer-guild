@@ -1,54 +1,33 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import styles from "../../styles/SignInUpForm.module.css";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import FillerImage from "../../components/FillerImage";
+import styles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import {
-  Form,
-  Button,
-  Col,
-  Row,
-  Container,
-  Alert,
-} from "react-bootstrap";
-import axios from "axios";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-import { useRedirect } from "../../hooks/useRedirect";
-import FillerImage from "../../components/FillerImage";
 
-function SignInForm() {
+function FormInput(url, text) {
   const setCurrentUser = useSetCurrentUser();
-  useRedirect("loggedIn");
-  
-  const [signInData, setSignInData] = useState({
-    username: "",
-    password: "",
-  });
-  const { username, password } = signInData;
-
-  const [errors, setErrors] = useState({});
-
   const history = useHistory();
+  const [errors, setErrors] = useState({});
+  const [inputType] = useState(props.type);
+  const [inputData, setInputData] = useState("");
 
   const handleChange = (event) => {
-    setSignInData({
-      /* spread previous signInData so only the relevant attribute is updated */
-      ...signInData,
-      /* create key: value pair of name: value */
+    setInputData({
+      ...inputData,
       [event.target.name]: event.target.value,
     });
   };
 
   const handleSubmit = async (event) => {
-    /* prevent the page from refreshing */
     event.preventDefault();
     try {
-      /* redirect to url and include the signUpData entered */
-      const { data } = await axios.post("dj-rest-auth/login/", signInData);
+      const { data } = await axios.post(url, inputData);
       setCurrentUser(data.user);
       history.goBack();
     } catch (err) {
-      /* optional chaining (?) to check if there is a an error response */
       setErrors(err.response?.data);
     }
   };
@@ -70,7 +49,6 @@ function SignInForm() {
                 onChange={handleChange}
               />
             </Form.Group>
-            {/* display message if username is present in errors */}
             {errors.username?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
@@ -87,7 +65,6 @@ function SignInForm() {
                 onChange={handleChange}
               />
             </Form.Group>
-            {/* display message if password is present in errors */}
             {errors.password?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
@@ -112,11 +89,12 @@ function SignInForm() {
             Don't have an account? <span>Sign up now!</span>
           </Link>
         </Container>
-
       </Col>
-      <FillerImage style={styles.SignInCol} src="https://res.cloudinary.com/dfgylv4o2/image/upload/v1681242410/hero_game_on_wrrd8e.png"/>
+      <FillerImage
+        style={styles.SignInCol}
+        src="https://res.cloudinary.com/dfgylv4o2/image/upload/v1681242410/hero_game_on_wrrd8e.png"
+      />
     </Row>
   );
-};
-
-export default SignInForm;
+}
+export default FormInput;

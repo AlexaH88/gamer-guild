@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Image } from "react-bootstrap";
-import styles from "../styles/Form.module.css";
 import appStyles from "../App.module.css";
 
 const FillerImage = ({ src, style }) => {
