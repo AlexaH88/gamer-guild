@@ -10,8 +10,6 @@ function CommentCreateForm(props) {
   const {
     post,
     setPost,
-    event,
-    setEvent,
     setComments,
     profileImage,
     profile_id,
@@ -28,7 +26,6 @@ function CommentCreateForm(props) {
       const { data } = await axiosRes.post("/comments/", {
         content,
         post,
-        event,
       });
       setComments((prevComments) => ({
         ...prevComments,
@@ -39,14 +36,6 @@ function CommentCreateForm(props) {
           {
             ...prevPost.results[0],
             comments_count: prevPost.results[0].comments_count + 1,
-          },
-        ],
-      }));
-      setEvent((prevEvent) => ({
-        results: [
-          {
-            ...prevEvent.results[0],
-            comments_count: prevEvent.results[0].comments_count + 1,
           },
         ],
       }));
