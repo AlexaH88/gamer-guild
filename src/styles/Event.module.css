@@ -27,17 +27,14 @@ h5 {
     font-weight: bold;
 }
 
-.LikeImpossible:hover,
-.AttendImpossible:hover {
+.ReplyImpossible:hover {
     color: #000000;
 }
 
-.Liked,
-.Attended {
+.Replied {
     color: #54d9ff;
 }
 
-.UnLiked,
-.UnAttended {
+.UnReplied {
     color: #104b87;
 }

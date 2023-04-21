@@ -20,11 +20,8 @@ const Event = (props) => {
     owner,
     profile_id,
     profile_image,
-    comments_count,
-    likes_count,
-    attendees_count,
-    like_id,
-    attend_id,
+    reply_id,
+    replies_count,
     name,
     about,
     image,
@@ -55,14 +52,14 @@ const Event = (props) => {
     }
   };
 
-  const handleLike = async () => {
+  const handleReply = async () => {
     try {
-      const { data } = await axiosRes.post("/likes/", { event: id });
+      const { data } = await axiosRes.post("/replies/", { event: id });
       setEvents((prevEvents) => ({
         ...prevEvents,
         results: prevEvents.results.map((event) => {
           return event.id === id
-            ? { ...event, likes_count: event.likes_count + 1, like_id: data.id }
+            ? { ...event, replies_count: event.replies_count + 1, reply_id: data.id }
             : event;
         }),
       }));
@@ -71,54 +68,14 @@ const Event = (props) => {
     }
   };
 
-  const handleUnlike = async () => {
+  const handleUnreply = async () => {
     try {
-      await axiosRes.delete(`/likes/${like_id}/`);
+      await axiosRes.delete(`/replies/${reply_id}/`);
       setEvents((prevEvents) => ({
         ...prevEvents,
         results: prevEvents.results.map((event) => {
           return event.id === id
-            ? { ...event, likes_count: event.likes_count - 1, like_id: null }
-            : event;
-        }),
-      }));
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleAttend = async () => {
-    try {
-      const { data } = await axiosRes.post("/attendees/", { event: id });
-      setEvents((prevEvents) => ({
-        ...prevEvents,
-        results: prevEvents.results.map((event) => {
-          return event.id === id
-            ? {
-                ...event,
-                attendees_count: event.attendees_count + 1,
-                attend_id: data.id,
-              }
-            : event;
-        }),
-      }));
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleUnattend = async () => {
-    try {
-      await axiosRes.delete(`/attendees/${attend_id}/`);
-      setEvents((prevEvents) => ({
-        ...prevEvents,
-        results: prevEvents.results.map((event) => {
-          return event.id === id
-            ? {
-                ...event,
-                attendees_count: event.attendees_count - 1,
-                attend_id: null,
-              }
+            ? { ...event, replies_count: event.replies_count - 1, reply_id: null }
             : event;
         }),
       }));
@@ -191,61 +148,27 @@ const Event = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't like your own event!</Tooltip>}
+              overlay={<Tooltip>You can't reply to your own event!</Tooltip>}
             >
-              <i className={`fa-solid fa-thumbs-up ${styles.LikeImpossible}`} />
+              <i className={`fa-solid fa-calendar-check ${styles.ReplyImpossible}`} />
             </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={handleUnlike}>
-              <i className={`fa-solid fa-thumbs-up ${styles.Liked}`} />
+          ) : reply_id ? (
+            <span onClick={handleUnreply}>
+              <i className={`fa-solid fa-calendar-check ${styles.Replied}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={handleLike}>
-              <i className={`fa-solid fa-thumbs-up ${styles.UnLiked}`} />
+            <span onClick={handleReply}>
+              <i className={`fa-solid fa-calendar-check ${styles.UnReplied}`} />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to like events!</Tooltip>}
+              overlay={<Tooltip>Log in to reply to events!</Tooltip>}
             >
-              <i className={`fa-solid fa-thumbs-up ${styles.LikeImpossible}`} />
+              <i className={`fa-solid fa-calendar-check ${styles.ReplyImpossible}`} />
             </OverlayTrigger>
           )}
-          {likes_count}
-          <Link to={`/events/${id}`}>
-            <i className="fa-solid fa-comments" />
-          </Link>
-          {comments_count}
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't attend your own event!</Tooltip>}
-            >
-              <i
-                className={`fa-solid fa-calendar-check ${styles.AttendImpossible}`}
-              />
-            </OverlayTrigger>
-          ) : attend_id ? (
-            <span onClick={handleUnattend}>
-              <i className={`fa-solid fa-calendar-check ${styles.Attended}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleAttend}>
-              <i
-                className={`fa-solid fa-calendar-check ${styles.UnAttended}`}
-              />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to attend events!</Tooltip>}
-            >
-              <i
-                className={`fa-solid fa-calendar-check ${styles.AttendImpossible}`}
-              />
-            </OverlayTrigger>
-          )}
-          {attendees_count}
+          {replies_count}
         </div>
       </Card.Body>
     </Card>
