@@ -22,6 +22,7 @@ const Event = (props) => {
     profile_image,
     reply_id,
     replies_count,
+    polls_count,
     name,
     about,
     image,
@@ -169,6 +170,10 @@ const Event = (props) => {
             </OverlayTrigger>
           )}
           {replies_count}
+          <Link to={`/events/${id}`}>
+            <i className="fa-solid fa-clipboard-question" />
+          </Link>
+          {polls_count}
         </div>
       </Card.Body>
     </Card>

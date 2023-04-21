@@ -6,8 +6,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Event from "./Event";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Comment from "../comments/Comment";
-import CommentCreateForm from "../comments/CommentCreateForm";
+import Poll from "../polls/Poll";
+import PollCreateForm from "../polls/PollCreateForm";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
@@ -18,17 +18,17 @@ function EventPage() {
   const [event, setEvent] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
-  const [comments, setComments] = useState({ results: [] });
+  const [polls, setPolls] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: event }, { data: comments }] = await Promise.all([
+        const [{ data: event }, { data: polls }] = await Promise.all([
           axiosReq.get(`/events/${id}`),
-          axiosReq.get(`/comments/?event=${id}`),
+          axiosReq.get(`/polls/?event=${id}`),
         ]);
         setEvent({ results: [event] });
-        setComments(comments);
+        setPolls(polls);
       } catch (err) {
         console.log(err);
       }
@@ -45,35 +45,35 @@ function EventPage() {
         <Event {...event.results[0]} setEvents={setEvent} eventPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
-            <CommentCreateForm
+            <PollCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
               event={id}
               setEvent={setEvent}
-              setComments={setComments}
+              setPolls={setPolls}
             />
-          ) : comments.results.length ? (
-            "Comments"
+          ) : polls.results.length ? (
+            "Polls"
           ) : null}
-          {comments.results.length ? (
+          {polls.results.length ? (
             <InfiniteScroll
-              children={comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
+              children={polls.results.map((poll) => (
+                <Poll
+                  key={poll.id}
+                  {...poll}
                   setEvent={setEvent}
-                  setComments={setComments}
+                  setPolls={setPolls}
                 />
               ))}
-              dataLength={comments.results.length}
+              dataLength={polls.results.length}
               loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
+              hasMore={!!polls.next}
+              next={() => fetchMoreData(polls, setPolls)}
             />
           ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
+            <span>No poll responses yet, be the first to respond!</span>
           ) : (
-            <span>No comments yet, log in to comment!</span>
+            <span>No poll responses yet, log in to respond!</span>
           )}
         </Container>
       </Col>
