@@ -8,7 +8,7 @@ import {
   Alert,
   Image,
 } from "react-bootstrap";
-import styles from "../../styles/EventCreateEditForm.module.css";
+import styles from "../../styles/Form.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router";

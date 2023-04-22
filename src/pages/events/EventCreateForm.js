@@ -9,7 +9,7 @@ import {
   Alert,
 } from "react-bootstrap";
 import Upload from "../../assets/upload.png";
-import styles from "../../styles/EventCreateEditForm.module.css";
+import styles from "../../styles/Form.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, InputGroup } from "react-bootstrap";
-import styles from "../../styles/PollCreateEditForm.module.css";
+import styles from "../../styles/Form.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 

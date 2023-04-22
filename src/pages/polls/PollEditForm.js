@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-import styles from "../../styles/PollCreateEditForm.module.css";
+import styles from "../../styles/Form.module.css";
 
 function PollEditForm(props) {
   const { id, response, setShowEditForm, setPolls } = props;

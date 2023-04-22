@@ -19,6 +19,13 @@
     color: #104b87;
 }
 
+.Heading {
+    font-weight: bold;
+    color: #104b87;
+    display: block;
+    text-align: center;
+}
+
 .Row {
     height: calc(100vh - 81px);
 }
