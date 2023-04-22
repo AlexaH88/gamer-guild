@@ -13,7 +13,7 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import AddContentButton from "../../components/AddContentButton";
 
-function EventsPage({ message, filter = "" }) {
+function EventsPage() {
   const [events, setEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -24,7 +24,7 @@ function EventsPage({ message, filter = "" }) {
     const fetchEvents = async () => {
       try {
         const { data } = await axiosReq.get(
-          `/events/?${filter}search=${query}`
+          `/events/?search=${query}`
         );
         setEvents(data);
         setHasLoaded(true);
@@ -41,7 +41,7 @@ function EventsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [query, pathname]);
 
   return (
     <Row className="h-100">

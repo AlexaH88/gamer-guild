@@ -13,7 +13,7 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import AddContentButton from "../../components/AddContentButton";
 
-function PostsPage({ message, filter = "" }) {
+function PostsPage() {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -23,7 +23,7 @@ function PostsPage({ message, filter = "" }) {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+        const { data } = await axiosReq.get(`/posts/?search=${query}`);
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
@@ -39,7 +39,7 @@ function PostsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [query, pathname]);
 
   return (
     <Row className="h-100">
