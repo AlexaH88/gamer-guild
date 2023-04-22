@@ -1,3 +1,24 @@
+.Form {
+    border: none;
+    border-bottom: 2px #54d9ff solid;
+}
+
+.Button {
+    border: none;
+    background-color: #104b87;
+    color: #ffffff;
+    border-radius: 100px;
+    padding: 4px 10px;
+    min-width: 75px;
+    margin: 5px;
+}
+
+.Button:hover {
+    cursor: pointer;
+    background-color: #54d9ff;
+    color: #104b87;
+}
+
 .Row {
     height: calc(100vh - 81px);
 }
@@ -35,7 +56,11 @@
 }
 
 .Container {
-    padding: 30px 10px;
+    min-height: 343px;
+}
+
+.Upload {
+    cursor: pointer;
 }
 
 .SignInCol {
