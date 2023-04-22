@@ -51,6 +51,10 @@
 }
 
 .AddContentButton {
-    margin-bottom: 16px;
     font-size: 1rem;
+}
+
+.Container {
+    margin-bottom: 16px;
+    padding: 0px;
 }
