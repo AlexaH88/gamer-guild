@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import styles from "../../styles/SignInUpForm.module.css";
+import { useHistory } from "react-router-dom";
+import styles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import {
@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
 import FillerImage from "../../components/FillerImage";
+import InfoContainer from "../../components/InfoContainer";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
@@ -120,12 +121,7 @@ const SignUpForm = () => {
             ))}
           </Form>
         </Container>
-
-        <Container className={`mt-3 ${appStyles.Content}`}>
-          <Link className={styles.Link} to="/signin">
-            Already have an account? <span>Sign in</span>
-          </Link>
-        </Container>
+        <InfoContainer url="/signin" text="Already have an account?" span_text="Sign in"/>
       </Col>
       <FillerImage style={styles.SignUpCol} src="https://res.cloudinary.com/dfgylv4o2/image/upload/v1681242417/hero_insert_coin_aynmjq.png" />
     </Row>

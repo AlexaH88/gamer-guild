@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import styles from "../../styles/SignInUpForm.module.css";
+import { useHistory } from "react-router-dom";
+import styles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import {
@@ -15,6 +15,7 @@ import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import FillerImage from "../../components/FillerImage";
+import InfoContainer from "../../components/InfoContainer";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -106,13 +107,7 @@ function SignInForm() {
             ))}
           </Form>
         </Container>
-
-        <Container className={`mt-3 ${appStyles.Content}`}>
-          <Link className={styles.Link} to="/signup">
-            Don't have an account? <span>Sign up now!</span>
-          </Link>
-        </Container>
-
+        <InfoContainer url="/signup" text="Don't have an account?" span_text="Sign up now!"/>
       </Col>
       <FillerImage style={styles.SignInCol} src="https://res.cloudinary.com/dfgylv4o2/image/upload/v1681242410/hero_game_on_wrrd8e.png"/>
     </Row>
