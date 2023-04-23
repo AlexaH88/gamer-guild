@@ -12,17 +12,17 @@ function PollCreateForm(props) {
     profileImage,
     profile_id,
   } = props;
-  const [response, setResponse] = useState("");
+  const [question, setQuestion] = useState("");
 
   const handleChange = (event) => {
-    setResponse(event.target.value);
+    setQuestion(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/polls/", {
-        response,
+        question,
         event,
       });
       setPolls((prevPolls) => ({
@@ -37,7 +37,7 @@ function PollCreateForm(props) {
           },
         ],
       }));
-      setResponse("");
+      setQuestion("");
     } catch (err) {
       console.log(err);
     }
@@ -46,33 +46,24 @@ function PollCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
-        <label
-          htmlFor="poll"
-          className={`align-items-center ${styles.Heading}`}
-        >
-          Do you want to see more events like this?
-        </label>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
           <Form.Control
-            id="poll"
-            as="select"
-            name="response"
+            as="text"
+            placeholder="my poll question..."
+            name="question"
             className={styles.Form}
-            value={response}
+            value={question}
             onChange={handleChange}
           >
-            <option label="yes">Yes</option>
-            <option label="maybe">Maybe</option>
-            <option label="no">No</option>
           </Form.Control>
         </InputGroup>
       </Form.Group>
       <button
         className={`${styles.Button} d-block ml-auto`}
-        disabled={!response.trim()}
+        disabled={!question.trim()}
         type="submit"
       >
         submit

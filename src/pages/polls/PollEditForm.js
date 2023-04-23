@@ -4,19 +4,19 @@ import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/Form.module.css";
 
 function PollEditForm(props) {
-  const { id, response, setShowEditForm, setPolls } = props;
+  const { id, question, setShowEditForm, setPolls } = props;
 
-  const [formResponse, setFormResponse] = useState(response);
+  const [formQuestion, setFormQuestion] = useState(question);
 
   const handleChange = (event) => {
-    setFormResponse(event.target.value);
+    setFormQuestion(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.put(`/polls/${id}/`, {
-        response: formResponse.trim(),
+        question: formQuestion.trim(),
       });
       setPolls((prevPolls) => ({
         ...prevPolls,
@@ -24,7 +24,7 @@ function PollEditForm(props) {
           return poll.id === id
             ? {
                 ...poll,
-                response: formResponse.trim(),
+                question: formQuestion.trim(),
                 updated_at: "now",
               }
             : poll;
@@ -42,7 +42,7 @@ function PollEditForm(props) {
         <Form.Control
           className={styles.Form}
           as="textarea"
-          value={formResponse}
+          value={formQuestion}
           onChange={handleChange}
           rows={2}
         />
@@ -57,7 +57,7 @@ function PollEditForm(props) {
         </button>
         <button
           className={styles.Button}
-          disabled={!response.trim()}
+          disabled={!question.trim()}
           type="submit"
         >
           save

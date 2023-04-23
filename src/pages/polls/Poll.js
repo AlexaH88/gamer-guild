@@ -14,7 +14,7 @@ const Poll = (props) => {
     profile_image,
     owner,
     updated_at,
-    response,
+    question,
     id,
     setEvent,
     setPolls,
@@ -57,14 +57,14 @@ const Poll = (props) => {
             <PollEditForm
               id={id}
               profile_id={profile_id}
-              content={response}
+              question={question}
               profileImage={profile_image}
               setPolls={setPolls}
               setShowEditForm={setShowEditForm}
             />
           ) : (
             <>
-              <p>{response}</p>
+              <p>{question}</p>
             </>
           )}
         </Media.Body>

@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import appStyles from "../../App.module.css";
+import { Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import PopularProfiles from "../profiles/PopularProfiles";
-import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Comment from "../comments/Comment";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Asset from "../../components/Asset";
-import { fetchMoreData } from "../../utils/utils";
 import AddContentButton from "../../components/AddContentButton";
 import CommentContainer from "../../components/CommentContainer";
 
