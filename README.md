@@ -3,10 +3,11 @@
 [Gamer Guild](https://gamer-guild.herokuapp.com/) has been developed for anyone interested in gaming, allowing users to connect over their geeky passion. The web app includes the following functionality:
 - Create, read and update profiles
 - Create, read, update and delete posts
+- Like and unlike posts
+- Create, read, update and delete comments on posts
 - Create, read, update and delete events
-- Like and unlike posts and events
-- Create, read, update and delete comments on posts and events
 - Attend and unattend events
+- Create, read, update and delete poll responses on posts
 - Follow and unfollow users
 - Chat with followed users, and see who is online
 
@@ -54,7 +55,7 @@
 
 -   #### Typography
 
-    - The 'Bungee', 'Audiowide' and 'Black Ops One' fonts were used on all pages throughout the project. [Bungee](https://fonts.google.com/specimen/Bungee) for the navbar, [Audiowide](https://fonts.google.com/specimen/Audiowide) for the headingsm, and [Black Ops One](https://fonts.google.com/specimen/Black+Ops+One) is used for the remaining text.
+    - The 'Bungee' and 'Gugi' fonts were used throughout the project. [Bungee](https://fonts.google.com/specimen/Bungee) for the navbar and headings on the pages, and [Gugi](https://fonts.google.com/specimen/Gugi) was used for the remaining text.
 
     - The fonts were chosen for their playful and retro feel, and the similarity to old video game text, all the while taking into account the general feel of the site. 
     
