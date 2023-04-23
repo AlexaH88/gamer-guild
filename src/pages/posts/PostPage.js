@@ -12,6 +12,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import AddContentButton from "../../components/AddContentButton";
+import CommentContainer from "../../components/CommentContainer";
 
 function PostPage() {
   const { id } = useParams();
@@ -41,44 +42,23 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        {currentUser && <AddContentButton url="/posts/create" text="Add Post" mobile />}
+        {currentUser && (
+          <AddContentButton url="/posts/create" text="Add Post" mobile />
+        )}
         <Post {...post.results[0]} setPosts={setPost} postPage />
-        <Container className={appStyles.Content}>
-          {currentUser ? (
-            <CommentCreateForm
-              profile_id={currentUser.profile_id}
-              profileImage={profile_image}
-              post={id}
-              setPost={setPost}
-              setComments={setComments}
-            />
-          ) : comments.results.length ? (
-            "Comments"
-          ) : null}
-          {comments.results.length ? (
-            <InfiniteScroll
-              children={comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
-                  setPost={setPost}
-                  setComments={setComments}
-                />
-              ))}
-              dataLength={comments.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
-            />
-          ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
-          ) : (
-            <span>No comments yet, log in to comment!</span>
-          )}
-        </Container>
+        <CommentContainer
+          currentUser={currentUser}
+          profile_image={profile_image}
+          id={id}
+          setPost={setPost}
+          comments={comments}
+          setComments={setComments}
+        />
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        {currentUser && <AddContentButton url="/posts/create" text="Add Post" />}
+        {currentUser && (
+          <AddContentButton url="/posts/create" text="Add Post" />
+        )}
         <PopularProfiles />
       </Col>
     </Row>
