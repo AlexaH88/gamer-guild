@@ -37,19 +37,22 @@
     
 -   #### Colour Palette
 
-    - The colour palette is made up of four colours: 
+    - The colour palette is made up of five colours: 
         - Dark Blue #104B87
+        - Turquoise #54D9FF
         - Light Blue #C1DFFF
         - Black #000000
         - White #FFFFFF
 
-    - The Dark Blue #104B87 was chosen for its visual appeal to most users, and as a contrast with the rest of the app.
+    - The Dark Blue #104B87 was chosen for its neutral and visual appeal to most users, and as a contrast with the rest of the app. It is used for headings and icons on the components to make these stand out.
+
+    - The Turquoise #54D9FF adds a pop of colour, and is used on icons and buttons throughout, indicating hovered or selected actions. It also creates a nice contrast to the dark blue. 
     
-    - The Light Blue #C1DFFF is used on the general background of the web app and for any hover elements on the navbar - distinguishing from the White #FFFFFF but remaining visible nonetheless.
+    - The Light Blue #C1DFFF is used on the general background of the web app, making the white components stand out, through contrast. 
 
     - The White #FFFFFF is uses as a neutral tone throughout and in particular for the navbar text, and background color to all components.
     
-    - The Black #000000 is used as a neutral tone throughout and in particular for the text on the light blue background, and for any hover effects on the dark blue icons and text items. 
+    - The Black #000000 is used as a neutral tone throughout and in particular for the text on white background, and to indicate when no clickable action is possible when hovering on the dark blue icons.
     
     - Compatibility with each other, and accessibility, were taken into account for all four colours.
 
