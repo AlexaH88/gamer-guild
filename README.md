@@ -242,7 +242,7 @@
 
 ## __Testing__
 
-### ***HTML, CSS , JavaScript and React Testing***
+### ***HTML, CSS, and React JS Testing***
 
 <!-- - [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to validate every page of the project to ensure there were no HTML syntax errors in the project.
 
@@ -326,9 +326,9 @@
 
 ### ***Responsive Testing***
 
-<!-- - [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to regularly check for any responsive design issues. The media queries are the same as the DevTools breakpoints. 
+- [React Bootstrap:](https://react-bootstrap.github.io/getting-started/introduction) was used to ensure the app is responsive throughout. 
 
-- The site is responsive down to 320px viewport widths.   -->
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to regularly check for any responsive design issues. 
 
 ### ***Further Testing***
 
