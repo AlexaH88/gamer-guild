@@ -64,11 +64,13 @@
     
 -   #### Imagery
 
-    - There are two hero images throughout the site, found on the sign up and sign in pages, next to the forms.
+    - All images were created by the app creator so as to allow for uniformity with the app's colour scheme and to have the content fit with the gaming theme.
 
-        - The hero images are deliberately kept to a minimum so as not to distract from the image-heavy content from users. 
+        - There are two hero images throughout the site, found on the sign up and sign in pages, next to the forms. The number of hero images is deliberately kept to a minimum so as not to distract from the image-heavy content from users.
 
-        - Both images were created by the app creator [Alexa Hendry](https://github.com/AlexaH88) using [Canva:](https://www.canva.com/), so as to allow for uniformity with the app's colour scheme and to have the content fit with the gaming theme. 
+        - There are three default images on the app - applied when creating profiles, posts and events. 
+
+        - There are two custom icons, shown when there are no search results, and when creating new content to indicate the possibility of uploading an image.
 
 ### ***Wireframes and Mock-Ups***
 
@@ -425,7 +427,20 @@ The site is now live and operational
 
 ### ***Media***
 
-- The hero images were created by the app creator [Alexa Hendry](https://github.com/AlexaH88) using [Canva:](https://www.canva.com/).
+- The hero images, default images, upload and no results images were created by the app creator [Alexa Hendry](https://github.com/AlexaH88) using [Canva:](https://www.canva.com/):
+
+    - Hero Images:
+        - Sign Up Hero: ![Sign Up Hero](./docs/readme/images/ux/hero_insert_coin.png)
+        - Sign In Hero: ![Sign In Hero](./docs/readme/images/ux/hero_game_on.png)
+    
+    - Default Images:
+        - Default Profile: ![Default Profile](./docs/readme/images/ux/default_profile.png)
+        - Default Post: ![Default Post](./docs/readme/images/ux/default_post.png)
+        - Default Event: ![Default Event](./docs/readme/images/ux/default_event.png)
+    
+    - Upload and No Results Images:
+        - Upload: ![Upload](./docs/readme/images/ux/upload.png)
+        - No Results: ![No Results](./docs/readme/images/ux/no_results.png)
 
 ### ***Acknowledgements***
 
