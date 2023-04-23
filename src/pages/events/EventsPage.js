@@ -13,7 +13,7 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import AddContentButton from "../../components/AddContentButton";
 
-function EventsPage() {
+function EventsPage({ message }) {
   const [events, setEvents] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -23,9 +23,7 @@ function EventsPage() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const { data } = await axiosReq.get(
-          `/events/?search=${query}`
-        );
+        const { data } = await axiosReq.get(`/events/?search=${query}`);
         setEvents(data);
         setHasLoaded(true);
       } catch (err) {
@@ -47,7 +45,9 @@ function EventsPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        {currentUser && <AddContentButton url="/events/create" text="Add Event" mobile />}
+        {currentUser && (
+          <AddContentButton url="/events/create" text="Add Event" mobile />
+        )}
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -86,7 +86,9 @@ function EventsPage() {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        {currentUser && <AddContentButton url="/events/create" text="Add Event" />}
+        {currentUser && (
+          <AddContentButton url="/events/create" text="Add Event" />
+        )}
         <PopularProfiles />
       </Col>
     </Row>

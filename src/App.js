@@ -1,7 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import "./api/axiosDefaults";
-import { useCurrentUser } from "./contexts/CurrentUserContext";
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import SignUpForm from "./pages/auth/SignUpForm";
@@ -20,8 +19,6 @@ import EventPage from "./pages/events/EventPage";
 import EventEditForm from "./pages/events/EventEditForm";
 
 function App() {
-  const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
 
   return (
     <div className={styles.App}>

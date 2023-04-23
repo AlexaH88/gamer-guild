@@ -13,7 +13,7 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import AddContentButton from "../../components/AddContentButton";
 
-function PostsPage() {
+function PostsPage({ message }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -45,7 +45,9 @@ function PostsPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        {currentUser && <AddContentButton url="/posts/create" text="Add Post" mobile />}
+        {currentUser && (
+          <AddContentButton url="/posts/create" text="Add Post" mobile />
+        )}
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -84,7 +86,9 @@ function PostsPage() {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        {currentUser && <AddContentButton url="/posts/create" text="Add Post" />}
+        {currentUser && (
+          <AddContentButton url="/posts/create" text="Add Post" />
+        )}
         <PopularProfiles />
       </Col>
     </Row>
