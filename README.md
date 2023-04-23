@@ -64,13 +64,11 @@
     
 -   #### Imagery
 
-    <!-- - There are two hero images throughout the site:
+    - There are two hero images throughout the site, found on the sign up and sign in pages, next to the forms.
 
-        - The homepage image of a collection of vinyls strewn across a surface covers the entire body of the site and is used to get the users attention when landing on the homepage. As the remaining content on this page is not text-heavy, consisting of the search function, the hero image doesn't distract from the content.
+        - The hero images are deliberately kept to a minimum so as not to distract from the image-heavy content from users. 
 
-        - The remaining pages use the same hero image of half of a single vinyl seemingly dropping from the top of the page. As these pages contain a considerable amount of text and content, this was done in order not to distact from the information on the page. 
-
-        - Both hero images are predominantly black and white and were deliberately chosen as such to give a neutral feel and allow for pops of colour elsewhere on the site.  -->
+        - Both images were created by the app creator [Alexa Hendry](https://github.com/AlexaH88) using [Canva:](https://www.canva.com/), so as to allow for uniformity with the app's colour scheme and to have the content fit with the gaming theme. 
 
 ### ***Wireframes and Mock-Ups***
 
@@ -239,9 +237,6 @@
 
 1. [Canva:](https://www.canva.com/)
     - Canva was used to create the wireframes and mock-ups during the design process. 
-
-<!-- 1. [Pexels](https://www.pexels.com/) and [Unsplash:](https://unsplash.com/)
-    - Pexels and Unsplash wre used to find the hero images. -->
 
 ## __Testing__
 
@@ -430,13 +425,7 @@ The site is now live and operational
 
 ### ***Media***
 
-<!-- - The two hero images were taken from [Pexels](https://www.pexels.com/) and [Unsplash](https://unsplash.com/) respectively and are credited as follows:
-
-- [Homepage Hero Image](https://unsplash.com/photos/iRjOMSpZaEE) by [Miriana Dorobanțu](https://unsplash.com/@mirianaa_)
-
-- [Main Hero Image](https://www.pexels.com/photo/black-record-vinyl-167092/) by [Miguel Á. Padriñán](https://www.pexels.com/@padrinan/)
-
-- The [vinyl graphic](https://www.canva.com/icons/MAFM8W9r2EI-retro-disc-vinyl-sticker/) on the Song Lyrics page was taken from graphic designer [Deadframe Works Images](https://www.canva.com/p/deadframes/) via [Canva](https://www.canva.com/). -->
+- The hero images were created by the app creator [Alexa Hendry](https://github.com/AlexaH88) using [Canva:](https://www.canva.com/).
 
 ### ***Acknowledgements***
 
