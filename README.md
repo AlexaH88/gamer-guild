@@ -15,23 +15,44 @@
 
 ## __User Experience (UX)__
 
-### ***User stories***
+### ***User Stories***
 
-<!-- -   #### First Time Visitor Goals
+- The User Stories for this project were created with [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects), and can be found here: [Portfolio Project 5](https://github.com/users/AlexaH88/projects/5)
 
-    1. As a First Tiem Visitor I can use a search bar on the homepage so that I can easily find the song I'm looking for.
+- The User Stories were organised by must haves, should haves, and could haves, and allocated to appropriate weekly sprints, covering a period of 5 weeks total.
+![User Stories Sprint Chart](./docs/readme/images/ux/user_stories_sprints.png)
 
--   #### Returning Visitor Goals
+- Included in the labels were the in-app location of the desired functionality, as well as any required back-end API functionality.  
 
-    1. As a Returning Visitor I can sign up for an account so that I can create, edit and delete lyrics.
-    2. As a Returning Visitor I can login to an account so that I can access my songs as a returning user.
-    3. As a Returning Visitor I can logout of an account so that I remove access to anyone else using the computer
+-   #### Sprint 1 (Must Have)
+    ![User Stories Sprint 1](./docs/readme/images/ux/user_stories_sprint_1.png)
 
--   #### Frequent User Goals
+    <!-- - Navigation:
+        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
 
-    1. As a Frequent User (Site User / Site Admin) I can create song lyrics so that other users can find the lyrics to their favourite songs.
-    2. As a Frequent User (Site User / Site Admin) I can edit song lyrics that I've created so that I can modify the content if needed.
-    3. As a Frequent User (Site User / Site Admin) I can delete song lyrics that I've created so that I can remove my contribution if needed. -->
+-   #### Sprint 2 (Must Have)
+    ![User Stories Sprint 2](./docs/readme/images/ux/user_stories_sprint_2.png)
+
+    <!-- - Navigation:
+        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
+
+-   #### Sprint 3 (Should Have)
+    ![User Stories Sprint 3](./docs/readme/images/ux/user_stories_sprint_3.png)
+
+    <!-- - Navigation:
+        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
+
+-   #### Sprint 4 (Should Have)
+    ![User Stories Sprint 4](./docs/readme/images/ux/user_stories_sprint_4.png)
+
+    <!-- - Navigation:
+        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
+
+-   #### Sprint 5 (Could Have)
+    ![User Stories Sprint 5](./docs/readme/images/ux/user_stories_sprint_5.png)
+
+    <!-- - Navigation:
+        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
 
 ### ***Design***
     
@@ -219,6 +240,9 @@
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
 
+1. [GitHub Projects:](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+    - GitHub Projects was used to create the User Stories.
+
 1. [Heroku:](https://heroku.com/)
     - Heroku was used for the deployed application.
 
@@ -319,10 +343,10 @@
 
 - #### Further Accessibility Testing
 
-- [EightShapes Contrast Grid](http://eightshapes.com/) was used to test the colour palette of the site for any accessibility issues. Only AAA and AA rating options were used on the site. 
-  ![Colour Palette Contrast Grid](./docs/readme/images/testing/eightshapes_contrast_grid.png)
-  
-- Any icons on the site that are for decorative purposes only use the aria-hidden="true" attribute to accommodate for accessibility, as recommended by [Font Awesome's Accessiblity Page](https://fontawesome.com/v5/docs/web/other-topics/accessibility)
+    - [EightShapes Contrast Grid](http://eightshapes.com/) was used to test the colour palette of the site for any accessibility issues. Only AAA and AA rating options were used on the site. 
+    ![Colour Palette Contrast Grid](./docs/readme/images/testing/eightshapes_contrast_grid.png)
+    
+    - Any icons on the site that are for decorative purposes only use the aria-hidden="true" attribute to accommodate for accessibility, as recommended by [Font Awesome's Accessiblity Page](https://fontawesome.com/v5/docs/web/other-topics/accessibility)
 
 ### ***Responsive Testing***
 
