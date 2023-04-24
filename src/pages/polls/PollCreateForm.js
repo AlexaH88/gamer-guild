@@ -8,21 +8,22 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 function PollCreateForm(props) {
   const {
-    event,
     setEvent,
     setPolls,
+    profileImage,
+    profile_id,
   } = props;
-  const [question, setQuestion] = useState("");
+  const [content, setContent] = useState("");
 
   const handleChange = (event) => {
-    setQuestion(event.target.value);
+    setContent(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/polls/", {
-        question,
+        content,
         event,
       });
       setPolls((prevPolls) => ({
@@ -33,11 +34,11 @@ function PollCreateForm(props) {
         results: [
           {
             ...prevEvent.results[0],
-            polls_count: prevEvent.results[0].prevEvent + 1,
+            polls_count: prevEvent.results[0].polls_count + 1,
           },
         ],
       }));
-      setQuestion("");
+      setContent("");
     } catch (err) {
       console.log(err);
     }
@@ -47,11 +48,14 @@ function PollCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profileImage} />
+          </Link>
           <Form.Control
             className={styles.Form}
             placeholder="my poll..."
             as="textarea"
-            value={question}
+            value={content}
             onChange={handleChange}
             rows={2}
           />
@@ -59,10 +63,10 @@ function PollCreateForm(props) {
       </Form.Group>
       <button
         className={`${styles.Button} d-block ml-auto`}
-        disabled={!question.trim()}
+        disabled={!content.trim()}
         type="submit"
       >
-        create
+        submit
       </button>
     </Form>
   );

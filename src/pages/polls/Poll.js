@@ -1,31 +1,28 @@
-import React from "react";
-import styles from "../../styles/Poll.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
+import React, { useState } from "react";
+import { Media } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
+import styles from "../../styles/Comment.module.css";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { axiosRes } from "../../api/axiosDefaults";
+import PollEditForm from "./PollEditForm";
 
 const Poll = (props) => {
   const {
-    id,
+    profile_id,
+    profile_image,
     owner,
-    votes_count,
-    vote_id,
-    question,
     updated_at,
-    pollPage,
+    content,
+    id,
     setEvent,
     setPolls,
   } = props;
 
+  const [showEditForm, setShowEditForm] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
-  const history = useHistory();
-
-  const handleEdit = () => {
-    history.push(`/polls/${id}/edit`);
-  };
 
   const handleDelete = async () => {
     try {
@@ -34,6 +31,7 @@ const Poll = (props) => {
         results: [
           {
             ...prevEvent.results[0],
+            polls_count: prevEvent.results[0].polls_count - 1,
           },
         ],
       }));
@@ -42,124 +40,40 @@ const Poll = (props) => {
         ...prevPolls,
         results: prevPolls.results.filter((poll) => poll.id !== id),
       }));
-      history.goBack();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleVote = async () => {
-    try {
-      const { data } = await axiosRes.post("/votes/", { poll: id });
-      setPolls((prevPolls) => ({
-        ...prevPolls,
-        results: prevPolls.results.map((poll) => {
-          return poll.id === id
-            ? { ...poll, votes_count: poll.votes_count + 1, vote_id: data.id }
-            : poll;
-        }),
-      }));
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleUnvote = async () => {
-    try {
-      await axiosRes.delete(`/votes/${vote_id}/`);
-      setPolls((prevPolls) => ({
-        ...prevPolls,
-        results: prevPolls.results.map((poll) => {
-          return poll.id === id
-            ? { ...poll, votes_count: poll.votes_count - 1, vote_id: null }
-            : poll;
-        }),
-      }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (
-    <Card className={styles.Poll}>
-      <Card.Body>
-        <Media className="align-items-center justify-content-between">
-          <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
-            {is_owner && pollPage && (
-              <MoreDropdown
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-            )}
-          </div>
-        </Media>
-      </Card.Body>
-      <Card.Body>
-        {question && (
-          <Card.Title className={`text-center ${styles.Heading}`}>
-            {question}
-          </Card.Title>
-        )}
-        {currentUser ? (
-          <VoteCreateForm
-            profile_id={currentUser.profile_id}
-            profileImage={profile_image}
-            poll={id}
-            setPoll={setPoll}
-            setVotes={setVotes}
-          />
-        ) : votes.results.length ? (
-          "Votes"
-        ) : null}
-        {votes.results.length ? (
-          <InfiniteScroll
-            children={votes.results.map((vote) => (
-              <Vote
-                key={vote.id}
-                {...vote}
-                setPoll={setPoll}
-                setVotes={setVotes}
-              />
-            ))}
-            dataLength={votes.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!votes.next}
-            next={() => fetchMoreData(votes, setVotes)}
-          />
-        ) : currentUser ? (
-          <span>No votes yet, be the first to vote!</span>
-        ) : (
-          <span>No votes yet, log in to vote!</span>
-        )}
-        <div className={styles.VoteBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't vote for your own poll!</Tooltip>}
-            >
-              <i className={`fa-solid fa-thumbs-up ${styles.VoteImpossible}`} />
-            </OverlayTrigger>
-          ) : vote_id ? (
-            <span onClick={handleUnvote}>
-              <i className={`fa-solid fa-thumbs-up ${styles.Voted}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleVote}>
-              <i className={`fa-solid fa-thumbs-up ${styles.UnVoted}`} />
-            </span>
+    <>
+      <hr />
+      <Media>
+        <Link to={`/profiles/${profile_id}`}>
+          <Avatar src={profile_image} />
+        </Link>
+        <Media.Body className="align-self-center ml-2">
+          <span className={styles.Owner}>{owner}</span>
+          <span className={styles.Date}>{updated_at}</span>
+          {showEditForm ? (
+            <PollEditForm
+              id={id}
+              profile_id={profile_id}
+              content={content}
+              profileImage={profile_image}
+              setPolls={setPolls}
+              setShowEditForm={setShowEditForm}
+            />
           ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to vote for polls!</Tooltip>}
-            >
-              <i className={`fa-solid fa-thumbs-up ${styles.VoteImpossible}`} />
-            </OverlayTrigger>
+            <p>{content}</p>
           )}
-          {votes_count}
-        </div>
-      </Card.Body>
-    </Card>
+        </Media.Body>
+        {is_owner && !showEditForm && (
+          <MoreDropdown
+            handleEdit={() => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
+        )}
+      </Media>
+    </>
   );
 };
 

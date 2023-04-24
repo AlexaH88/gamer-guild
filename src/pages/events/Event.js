@@ -13,7 +13,6 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
-import AddContentButton from "../../components/AddContentButton";
 
 const Event = (props) => {
   const {
@@ -188,9 +187,6 @@ const Event = (props) => {
           </Link>
           {polls_count}
         </div>
-      </Card.Body>
-      <Card.Body>
-        {is_owner && <AddContentButton url="/polls/create" text="Add Poll" />}
       </Card.Body>
     </Card>
   );

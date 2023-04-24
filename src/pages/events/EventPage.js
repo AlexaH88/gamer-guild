@@ -13,11 +13,10 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import AddContentButton from "../../components/AddContentButton";
 
-function EventPage({ owner }) {
+function EventPage() {
   const { id } = useParams();
   const [event, setEvent] = useState({ results: [] });
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
   const profile_image = currentUser?.profile_image;
   const [polls, setPolls] = useState({ results: [] });
 
@@ -47,7 +46,7 @@ function EventPage({ owner }) {
         )}
         <Event {...event.results[0]} setEvents={setEvent} eventPage />
         <Container className={appStyles.Content}>
-          {/* {currentUser ? (
+          {currentUser ? (
             <PollCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -57,7 +56,7 @@ function EventPage({ owner }) {
             />
           ) : polls.results.length ? (
             "Polls"
-          ) : null} */}
+          ) : null}
           {polls.results.length ? (
             <InfiniteScroll
               children={polls.results.map((poll) => (
@@ -74,9 +73,9 @@ function EventPage({ owner }) {
               next={() => fetchMoreData(polls, setPolls)}
             />
           ) : currentUser ? (
-            <span>No poll yet, wait for the event owner to create one!</span>
+            <span>No poll vote yet, be the first to create one!</span>
           ) : (
-            <span>No poll yet, wait for the event owner to create one!</span>
+            <span>No poll vote yet, log in to create one!</span>
           )}
         </Container>
       </Col>
