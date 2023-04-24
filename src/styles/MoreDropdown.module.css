@@ -4,6 +4,15 @@
     padding: 0px;
 }
 
+.DropdownItem:hover,
+.ProfileDropdownItem:hover {
+    background-color: transparent;
+}
+
+.ProfileDropdownItem:focus {
+    color: #000000;
+}
+
 .Absolute {
     position: absolute;
     right: 0;
