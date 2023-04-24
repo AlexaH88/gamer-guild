@@ -4,7 +4,6 @@ import Asset from "../../components/Asset";
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -149,7 +148,6 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-      <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
@@ -171,7 +169,6 @@ function ProfilePage() {
 
   const mainProfileEvents = (
     <>
-      <hr />
       {profileEvents.results.length ? (
         <InfiniteScroll
           children={profileEvents.results.map((event) => (
@@ -193,22 +190,27 @@ function ProfilePage() {
 
   return (
     <Row>
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
+      <Col className="py-2 p-0 p-lg-2" lg={12}>
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
               {mainProfile}
-              {mainProfilePosts}
-              {mainProfileEvents}
+              <hr />
+              <Row>
+                <Col lg={6} className="d-none d-lg-block p-10 p-lg-10">
+                  <h3 className={styles.Heading}>Posts</h3>
+                  {mainProfilePosts}
+                </Col>
+                <Col lg={6} className="d-none d-lg-block p-10 p-lg-10">
+                  <h3 className={styles.Heading}>Events</h3>
+                  {mainProfileEvents}
+                </Col>
+              </Row>
             </>
           ) : (
             <Asset spinner />
           )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
       </Col>
     </Row>
   );
