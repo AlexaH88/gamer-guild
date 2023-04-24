@@ -103,7 +103,11 @@ const Post = (props) => {
           </Card.Title>
         )}
         {content && <Card.Text>{content}</Card.Text>}
-        {video && <Card.Link href={video}>{video}</Card.Link>}
+        {video && (
+          <Card.Link href={video} target="_blank" rel="noreferrer">
+            {video}
+          </Card.Link>
+        )}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger

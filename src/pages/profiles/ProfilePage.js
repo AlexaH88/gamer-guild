@@ -75,32 +75,32 @@ function ProfilePage() {
           {profile?.content && <Col className="p-3">{profile.content}</Col>}
           <Row className="justify-content-center no-gutters">
             {profile?.xbox && (
-              <a href={profile?.xbox}>
+              <a href={profile?.xbox} target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-xbox" aria-hidden="true"></i>
               </a>
             )}
             {profile?.playstation && (
-              <a href={profile?.playstation}>
+              <a href={profile?.playstation} target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-playstation" aria-hidden="true"></i>
               </a>
             )}
             {profile?.steam && (
-              <a href={profile?.steam}>
+              <a href={profile?.steam} target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-steam" aria-hidden="true"></i>
               </a>
             )}
             {profile?.discord && (
-              <a href={profile?.discord}>
+              <a href={profile?.discord} target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-discord" aria-hidden="true"></i>
               </a>
             )}
             {profile?.youtube && (
-              <a href={profile?.youtube}>
+              <a href={profile?.youtube} target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-youtube" aria-hidden="true"></i>
               </a>
             )}
             {profile?.twitch && (
-              <a href={profile?.twitch}>
+              <a href={profile?.twitch} target="_blank" rel="noreferrer">
                 <i className="fa-brands fa-twitch" aria-hidden="true"></i>
               </a>
             )}
