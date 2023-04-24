@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import YoutubeEmbed from "../../components/YouTubeEmbed";
 
 const Post = (props) => {
   const {
@@ -18,7 +19,6 @@ const Post = (props) => {
     like_id,
     title,
     content,
-    image,
     updated_at,
     postPage,
     video,
@@ -95,21 +95,17 @@ const Post = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Link to={`/posts/${id}`}>
+      {/* <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
-      </Link>
+      </Link> */}
+      {video && <YoutubeEmbed src={video} alt={title} />}
       <Card.Body>
-        {title && (
+        <Link to={`/posts/${id}`}>
           <Card.Title className={`text-center ${styles.Heading}`}>
             {title}
           </Card.Title>
-        )}
+        </Link>
         {content && <Card.Text>{content}</Card.Text>}
-        {video && (
-          <Card.Link href={video} target="_blank" rel="noreferrer">
-            {video}
-          </Card.Link>
-        )}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger
