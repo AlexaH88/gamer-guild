@@ -4,3 +4,7 @@
     object-fit: cover;
     vertical-align: middle;
 }
+
+.Avatar:hover {
+    border: 3.5px solid #54d9ff;
+}
