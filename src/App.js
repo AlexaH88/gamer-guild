@@ -17,6 +17,8 @@ import EventsPage from "./pages/events/EventsPage";
 import EventCreateForm from "./pages/events/EventCreateForm";
 import EventPage from "./pages/events/EventPage";
 import EventEditForm from "./pages/events/EventEditForm";
+import PollCreateForm from "./pages/polls/PollCreateForm";
+import PollEditForm from "./pages/polls/PollEditForm";
 
 function App() {
 
@@ -62,6 +64,17 @@ function App() {
             exact
             path="/events/:id/edit"
             render={() => <EventEditForm />}
+          />
+          {/* polls */}
+          <Route
+            exact
+            path="/polls/create"
+            render={() => <PollCreateForm />}
+          />
+          <Route
+            exact
+            path="/polls/:id/edit"
+            render={() => <PollEditForm />}
           />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>

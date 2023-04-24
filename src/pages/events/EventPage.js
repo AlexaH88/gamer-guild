@@ -13,10 +13,11 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import AddContentButton from "../../components/AddContentButton";
 
-function EventPage() {
+function EventPage({ owner }) {
   const { id } = useParams();
   const [event, setEvent] = useState({ results: [] });
   const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner;
   const profile_image = currentUser?.profile_image;
   const [polls, setPolls] = useState({ results: [] });
 
@@ -41,10 +42,12 @@ function EventPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        {currentUser && <AddContentButton url="/events/create" text="Add Event" mobile />}
+        {currentUser && (
+          <AddContentButton url="/events/create" text="Add Event" mobile />
+        )}
         <Event {...event.results[0]} setEvents={setEvent} eventPage />
         <Container className={appStyles.Content}>
-          {currentUser ? (
+          {/* {currentUser ? (
             <PollCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -54,7 +57,7 @@ function EventPage() {
             />
           ) : polls.results.length ? (
             "Polls"
-          ) : null}
+          ) : null} */}
           {polls.results.length ? (
             <InfiniteScroll
               children={polls.results.map((poll) => (
@@ -71,14 +74,16 @@ function EventPage() {
               next={() => fetchMoreData(polls, setPolls)}
             />
           ) : currentUser ? (
-            <span>No poll responses yet, be the first to respond!</span>
+            <span>No poll yet, wait for the event owner to create one!</span>
           ) : (
-            <span>No poll responses yet, log in to respond!</span>
+            <span>No poll yet, wait for the event owner to create one!</span>
           )}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        {currentUser && <AddContentButton url="/events/create" text="Add Event" />}
+        {currentUser && (
+          <AddContentButton url="/events/create" text="Add Event" />
+        )}
         <PopularProfiles />
       </Col>
     </Row>

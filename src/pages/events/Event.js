@@ -13,6 +13,7 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import AddContentButton from "../../components/AddContentButton";
 
 const Event = (props) => {
   const {
@@ -60,7 +61,11 @@ const Event = (props) => {
         ...prevEvents,
         results: prevEvents.results.map((event) => {
           return event.id === id
-            ? { ...event, replies_count: event.replies_count + 1, reply_id: data.id }
+            ? {
+                ...event,
+                replies_count: event.replies_count + 1,
+                reply_id: data.id,
+              }
             : event;
         }),
       }));
@@ -76,7 +81,11 @@ const Event = (props) => {
         ...prevEvents,
         results: prevEvents.results.map((event) => {
           return event.id === id
-            ? { ...event, replies_count: event.replies_count - 1, reply_id: null }
+            ? {
+                ...event,
+                replies_count: event.replies_count - 1,
+                reply_id: null,
+              }
             : event;
         }),
       }));
@@ -151,7 +160,9 @@ const Event = (props) => {
               placement="top"
               overlay={<Tooltip>You can't reply to your own event!</Tooltip>}
             >
-              <i className={`fa-solid fa-calendar-check ${styles.ReplyImpossible}`} />
+              <i
+                className={`fa-solid fa-calendar-check ${styles.ReplyImpossible}`}
+              />
             </OverlayTrigger>
           ) : reply_id ? (
             <span onClick={handleUnreply}>
@@ -166,7 +177,9 @@ const Event = (props) => {
               placement="top"
               overlay={<Tooltip>Log in to reply to events!</Tooltip>}
             >
-              <i className={`fa-solid fa-calendar-check ${styles.ReplyImpossible}`} />
+              <i
+                className={`fa-solid fa-calendar-check ${styles.ReplyImpossible}`}
+              />
             </OverlayTrigger>
           )}
           {replies_count}
@@ -175,6 +188,9 @@ const Event = (props) => {
           </Link>
           {polls_count}
         </div>
+      </Card.Body>
+      <Card.Body>
+        {is_owner && <AddContentButton url="/polls/create" text="Add Poll" />}
       </Card.Body>
     </Card>
   );

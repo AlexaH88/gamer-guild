@@ -1,44 +1,27 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  Container,
-  Alert,
-  Image,
-} from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Button, Row, Col, Container, Alert } from "react-bootstrap";
 import styles from "../../styles/Form.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { useHistory, useParams } from "react-router";
+import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
-function PollEditForm() {
+function PollCreateForm(props) {
+  const {
+    event,
+    setEvent,
+    setPolls,
+  } = props;
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [pollData, setPollData] = useState({
     question: "",
   });
-  const { question } = postData;
+  const { question } = pollData;
 
   const history = useHistory();
-  const { id } = useParams();
-
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get(`/polls/${id}/`);
-        const { question, is_owner } = data;
-
-        is_owner ? setPollData({ question }) : history.push("/");
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    handleMount();
-  }, [history, id]);
 
   const handleChange = (event) => {
     setPollData({
@@ -52,6 +35,16 @@ function PollEditForm() {
     const formData = new FormData();
 
     formData.append("question", question);
+
+    try {
+      const { data } = await axiosReq.post("/polls/", formData);
+      history.push(`/polls/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
   };
 
   const textFields = (
@@ -78,7 +71,7 @@ function PollEditForm() {
         cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
+        create
       </Button>
     </div>
   );
@@ -101,4 +94,4 @@ function PollEditForm() {
   );
 }
 
-export default PollEditForm;
+export default PollCreateForm;

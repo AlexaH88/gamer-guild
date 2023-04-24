@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import { Form, InputGroup } from "react-bootstrap";
 import styles from "../../styles/Form.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function PollCreateForm(props) {
   const {
-    event,
     setEvent,
     setPolls,
+    profileImage,
+    profile_id,
   } = props;
   const [question, setQuestion] = useState("");
 
@@ -33,7 +33,7 @@ function PollCreateForm(props) {
         results: [
           {
             ...prevEvent.results[0],
-            polls_count: prevEvent.results[0].prevEvent + 1,
+            polls_count: prevEvent.results[0].polls_count + 1,
           },
         ],
       }));
@@ -47,14 +47,18 @@ function PollCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profileImage} />
+          </Link>
           <Form.Control
+            as="text"
+            placeholder="my poll question..."
+            name="question"
             className={styles.Form}
-            placeholder="my poll..."
-            as="textarea"
             value={question}
             onChange={handleChange}
-            rows={2}
-          />
+          >
+          </Form.Control>
         </InputGroup>
       </Form.Group>
       <button
@@ -62,7 +66,7 @@ function PollCreateForm(props) {
         disabled={!question.trim()}
         type="submit"
       >
-        create
+        submit
       </button>
     </Form>
   );
