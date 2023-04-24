@@ -196,12 +196,12 @@ function ProfilePage() {
             <>
               {mainProfile}
               <hr />
-              <Row>
-                <Col lg={6} className="d-none d-lg-block p-10 p-lg-10">
+              <Row noGutters className="px-3 text-center">
+                <Col lg={6}>
                   <h3 className={styles.Heading}>Posts</h3>
                   {mainProfilePosts}
                 </Col>
-                <Col lg={6} className="d-none d-lg-block p-10 p-lg-10">
+                <Col lg={6}>
                   <h3 className={styles.Heading}>Events</h3>
                   {mainProfileEvents}
                 </Col>
