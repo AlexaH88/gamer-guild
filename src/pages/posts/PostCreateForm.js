@@ -87,6 +87,9 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      <Form.Text className="mb-4">
+        Please ensure you are using an embed url for your video!
+      </Form.Text>
       {errors?.video?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
@@ -108,7 +111,7 @@ function PostCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+        <Col className="py-2 p-0 p-md-2" lg={6}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
@@ -119,24 +122,8 @@ function PostCreateForm() {
                 </>
               ) : (
                 <>
-                  <h3 className={styles.Heading}>Video Embedding</h3>
-                  <p>
-                    Please ensure you are using an embed url for your video!
-                    Instructions below.
-                  </p>
+                  <h3 className={styles.ListHeader}>Video Embedding Info</h3>
                   <YoutubeEmbed src="https://www.youtube.com/embed/lJIrF4YjHfQ" />
-                  <p>
-                    Or follow this link{" "}
-                    <span>
-                      <a
-                        href="https://support.google.com/youtube/answer/171780?hl=en"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <i className="fa-solid fa-link" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                  </p>
                 </>
               )}
             </div>
@@ -144,7 +131,7 @@ function PostCreateForm() {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        <Col lg={6} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>

@@ -280,27 +280,22 @@ function EventCreateForm() {
           ))}
         </Col>
       </Row>
-      <Row className="justify-content-md-center">
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.Blue}`}
-            onClick={() => history.goBack()}
-          >
-            cancel
-          </Button>
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.Blue}`}
-            type="submit"
-          >
-            create
-          </Button>
-      </Row>
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        onClick={() => history.goBack()}
+      >
+        cancel
+      </Button>
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        create
+      </Button>
     </div>
   );
 
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={6} lg={6}>
+        <Col className="py-2 p-0 p-md-2" lg={5}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
@@ -346,7 +341,7 @@ function EventCreateForm() {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={6} lg={6} className="d-none d-md-block p-0 p-md-2">
+        <Col lg={7} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
