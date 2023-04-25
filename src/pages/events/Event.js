@@ -34,6 +34,11 @@ const Event = (props) => {
     end_time,
     location,
     updated_at,
+    organiser,
+    email,
+    website,
+    phone,
+    address,
     eventPage,
     setEvents,
   } = props;
@@ -184,51 +189,51 @@ const Event = (props) => {
               Organiser Details
             </Card.Header>
             <ListGroup className="justify-content-md-center">
-              {date && (
+              {organiser && (
                 <ListGroupItem className="d-flex justify-content-between align-items-center">
                   <i
-                    className={`${styles.EventIcons} fa-solid fa-calendar-day`}
+                    className={`${styles.EventIcons} fa-solid fa-chalkboard-user`}
                     aria-hidden="true"
                   ></i>
-                  {date}
+                  {organiser}
                 </ListGroupItem>
               )}
-              {start_time && (
+              {email && (
                 <ListGroupItem className="d-flex justify-content-between align-items-center">
                   <i
-                    className={`${styles.EventIcons} fa-solid fa-clock`}
+                    className={`${styles.EventIcons} fa-solid fa-envelope`}
                     aria-hidden="true"
                   ></i>{" "}
-                  Start: {start_time}
+                  {email}
                 </ListGroupItem>
               )}
-              {end_time && (
+              {phone && (
                 <ListGroupItem className="d-flex justify-content-between align-items-center">
                   <i
-                    className={`${styles.EventIcons} fa-regular fa-clock`}
+                    className={`${styles.EventIcons} fa-solid fa-phone`}
                     aria-hidden="true"
                   ></i>{" "}
-                  End: {end_time}
+                  {phone}
                 </ListGroupItem>
               )}
-              {platform && (
+              {website && (
                 <ListGroupItem className="d-flex justify-content-between align-items-center">
                   <i
                     className={`${styles.EventIcons} fa-solid fa-globe`}
                     aria-hidden="true"
                   ></i>{" "}
-                  <a href={platform} target="_blank" rel="noreferrer">
-                    Live Stream
+                  <a href={website} target="_blank" rel="noreferrer">
+                    Website
                   </a>
                 </ListGroupItem>
               )}
-              {location && (
+              {address && (
                 <ListGroupItem className="d-flex justify-content-between align-items-center">
                   <i
                     className={`${styles.EventIcons} fa-solid fa-map-location-dot`}
                     aria-hidden="true"
                   ></i>{" "}
-                  {location}
+                  {address}
                 </ListGroupItem>
               )}
             </ListGroup>
@@ -238,7 +243,7 @@ const Event = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't reply to your own event!</Tooltip>}
+              overlay={<Tooltip>You can't attend your own event!</Tooltip>}
             >
               <i
                 className={`fa-solid fa-calendar-check ${styles.ReplyImpossible}`}
@@ -255,7 +260,7 @@ const Event = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to reply to events!</Tooltip>}
+              overlay={<Tooltip>Log in to attend events!</Tooltip>}
             >
               <i
                 className={`fa-solid fa-calendar-check ${styles.ReplyImpossible}`}

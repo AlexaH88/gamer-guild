@@ -206,11 +206,11 @@ function ProfilePage() {
               {mainProfile}
               <hr />
               <Row noGutters className="px-3 text-center">
-                <Col lg={6}>
+                <Col lg={6} className="p-2">
                   <h3 className={styles.Heading}>Posts</h3>
                   {mainProfilePosts}
                 </Col>
-                <Col lg={6}>
+                <Col lg={6} className="p-2">
                   <h3 className={styles.Heading}>Events</h3>
                   {mainProfileEvents}
                 </Col>

@@ -30,9 +30,27 @@ function EventCreateForm() {
     start_time: "",
     end_time: "",
     location: "",
+    organiser: "",
+    email: "",
+    website: "",
+    phone: "",
+    address: "",
   });
-  const { name, about, image, platform, date, start_time, end_time, location } =
-    eventData;
+  const {
+    name,
+    about,
+    image,
+    platform,
+    date,
+    start_time,
+    end_time,
+    location,
+    organiser,
+    email,
+    website,
+    phone,
+    address,
+  } = eventData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -66,6 +84,11 @@ function EventCreateForm() {
     formData.append("start_time", start_time);
     formData.append("end_time", end_time);
     formData.append("location", location);
+    formData.append("organiser", organiser);
+    formData.append("email", email);
+    formData.append("website", website);
+    formData.append("phone", phone);
+    formData.append("address", address);
 
     try {
       const { data } = await axiosReq.post("/events/", formData);
@@ -175,6 +198,76 @@ function EventCreateForm() {
         />
       </Form.Group>
       {errors?.location?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Organiser</Form.Label>
+        <Form.Control
+          type="text"
+          name="organiser"
+          value={organiser}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.organiser?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.email?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Website</Form.Label>
+        <Form.Control
+          type="url"
+          name="website"
+          value={website}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.website?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Phone</Form.Label>
+        <Form.Control
+          type="number"
+          name="phone"
+          value={phone}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.phone?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Address</Form.Label>
+        <Form.Control
+          type="text"
+          name="address"
+          value={address}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.address?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
