@@ -300,7 +300,7 @@ function EventEditForm() {
           <Form.Group>
             <Form.Label>Phone</Form.Label>
             <Form.Control
-              type="number"
+              type="tel"
               name="phone"
               value={phone}
               onChange={handleChange}
