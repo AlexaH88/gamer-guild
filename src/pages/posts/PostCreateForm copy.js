@@ -1,12 +1,21 @@
-import React, { useState } from "react";
-import { Form, Button, Row, Col, Container, Alert } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Container,
+  Image,
+  Alert,
+} from "react-bootstrap";
+import Upload from "../../assets/upload.png";
 import styles from "../../styles/Form.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import Asset from "../../components/Asset";
+import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
-import YoutubeEmbed from "../../components/YouTubeEmbed";
 
 function PostCreateForm() {
   useRedirect("loggedOut");
@@ -15,10 +24,12 @@ function PostCreateForm() {
   const [postData, setPostData] = useState({
     title: "",
     content: "",
+    image: "",
     video: "",
   });
-  const { title, content, video } = postData;
+  const { title, content, image, video } = postData;
 
+  const imageInput = useRef(null);
   const history = useHistory();
 
   const handleChange = (event) => {
@@ -28,6 +39,16 @@ function PostCreateForm() {
     });
   };
 
+  const handleChangeImage = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image);
+      setPostData({
+        ...postData,
+        image: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -35,6 +56,7 @@ function PostCreateForm() {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("video", video);
+    formData.append("image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -79,7 +101,7 @@ function PostCreateForm() {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Video Embed URL</Form.Label>
+        <Form.Label>Video URL</Form.Label>
         <Form.Control
           type="url"
           name="video"
@@ -112,34 +134,45 @@ function PostCreateForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-            <div className="text-center">
-              {video ? (
+            <Form.Group className="text-center">
+              {image ? (
                 <>
-                  <YoutubeEmbed src={video} alt={title} />
+                  <figure>
+                    <Image className={appStyles.Image} src={image} rounded />
+                  </figure>
+                  <div>
+                    <Form.Label
+                      className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                      htmlFor="image-upload"
+                    >
+                      Change the image
+                    </Form.Label>
+                  </div>
                 </>
               ) : (
-                <>
-                  <h3 className={styles.Heading}>Video Embedding</h3>
-                  <p>
-                    Please ensure you are using an embed url for your video!
-                    Instructions below.
-                  </p>
-                  <YoutubeEmbed src="https://www.youtube.com/embed/lJIrF4YjHfQ" />
-                  <p>
-                    Or follow this link{" "}
-                    <span>
-                      <a
-                        href="https://support.google.com/youtube/answer/171780?hl=en"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <i className="fa-solid fa-link" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                  </p>
-                </>
+                <Form.Label
+                  className={`${styles.Upload} d-flex justify-content-center`}
+                  htmlFor="image-upload"
+                >
+                  <Asset
+                    src={Upload}
+                    message="Click or tap to upload an image"
+                  />
+                </Form.Label>
               )}
-            </div>
+
+              <Form.File
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+                ref={imageInput}
+              />
+            </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
             <div className="d-md-none">{textFields}</div>
           </Container>

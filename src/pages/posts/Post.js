@@ -95,9 +95,6 @@ const Post = (props) => {
           </div>
         </Media>
       </Card.Body>
-      {/* <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title} />
-      </Link> */}
       {video && <YoutubeEmbed src={video} alt={title} />}
       <Card.Body>
         <Link to={`/posts/${id}`}>
