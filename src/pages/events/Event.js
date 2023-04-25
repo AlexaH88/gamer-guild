@@ -8,6 +8,8 @@ import {
   Media,
   OverlayTrigger,
   Tooltip,
+  Row,
+  Col,
 } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -114,47 +116,86 @@ const Event = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Card.Body className="pt-0">
-        {name && (
+      <Card.Img src={image} alt={name} />
+      <Card.Body>
+        <Link to={`/events/${id}`}>
           <Card.Title className={`text-center ${styles.Heading}`}>
             {name}
           </Card.Title>
-        )}
+        </Link>
         {about && <Card.Text>{about}</Card.Text>}
-      </Card.Body>
-      <Link to={`/events/${id}`}>
-        <Card.Img src={image} alt={name} />
-      </Link>
-      <Card.Body>
-        <ListGroup>
-          {date && (
-            <ListGroupItem>
-              <span className={styles.EventInfo}>When:</span> {date}
-            </ListGroupItem>
-          )}
-          {start_time && (
-            <ListGroupItem>
-              <span className={styles.EventInfo}>Start Time:</span> {start_time}
-            </ListGroupItem>
-          )}
-          {end_time && (
-            <ListGroupItem>
-              <span className={styles.EventInfo}>End Time:</span> {end_time}
-            </ListGroupItem>
-          )}
-          {location && (
-            <ListGroupItem>
-              <span className={styles.EventInfo}>Where (in person):</span>{" "}
-              {location}
-            </ListGroupItem>
-          )}
-          {platform && (
-            <ListGroupItem>
-              <span className={styles.EventInfo}>Where (virtual):</span>{" "}
-              <Card.Link href={platform}>{platform}</Card.Link>
-            </ListGroupItem>
-          )}
-        </ListGroup>
+        <Row xs={1} md={2} className="g-4">
+          <Col>
+            <Card.Header className={styles.ListHeader}>
+              Event Details
+            </Card.Header>
+            <ListGroup>
+              {date && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>When:</span> {date}
+                </ListGroupItem>
+              )}
+              {start_time && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>Start Time:</span>{" "}
+                  {start_time}
+                </ListGroupItem>
+              )}
+              {end_time && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>End Time:</span> {end_time}
+                </ListGroupItem>
+              )}
+              {location && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>Where (in person):</span>{" "}
+                  {location}
+                </ListGroupItem>
+              )}
+              {platform && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>Where (virtual):</span>{" "}
+                  <Card.Link href={platform}>{platform}</Card.Link>
+                </ListGroupItem>
+              )}
+            </ListGroup>
+          </Col>
+          <Col>
+            <Card.Header className={styles.ListHeader}>
+              Organiser Details
+            </Card.Header>
+            <ListGroup>
+              {date && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>When:</span> {date}
+                </ListGroupItem>
+              )}
+              {start_time && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>Start Time:</span>{" "}
+                  {start_time}
+                </ListGroupItem>
+              )}
+              {end_time && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>End Time:</span> {end_time}
+                </ListGroupItem>
+              )}
+              {location && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>Where (in person):</span>{" "}
+                  {location}
+                </ListGroupItem>
+              )}
+              {platform && (
+                <ListGroupItem>
+                  <span className={styles.EventInfo}>Where (virtual):</span>{" "}
+                  <Card.Link href={platform}>{platform}</Card.Link>
+                </ListGroupItem>
+              )}
+            </ListGroup>
+          </Col>
+        </Row>
         <div className={styles.EventBar}>
           {is_owner ? (
             <OverlayTrigger
