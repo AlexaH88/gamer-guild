@@ -103,192 +103,204 @@ function EventCreateForm() {
 
   const textFields = (
     <div className="text-center">
-      <Form.Group>
-        <Form.Label>Name</Form.Label>
-        <Form.Control
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.name?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>About</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="about"
-          value={about}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.about?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Date</Form.Label>
-        <Form.Control
-          type="date"
-          name="date"
-          value={date}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.date?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Start Time</Form.Label>
-        <Form.Control
-          type="time"
-          name="start_time"
-          value={start_time}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.start_time?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>End Time</Form.Label>
-        <Form.Control
-          type="time"
-          name="end_time"
-          value={end_time}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.end_time?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Platform URL</Form.Label>
-        <Form.Control
-          type="url"
-          name="platform"
-          value={platform}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.platform?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Location</Form.Label>
-        <Form.Control
-          type="text"
-          name="location"
-          value={location}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.location?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Organiser</Form.Label>
-        <Form.Control
-          type="text"
-          name="organiser"
-          value={organiser}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.organiser?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Email</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.email?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Website</Form.Label>
-        <Form.Control
-          type="url"
-          name="website"
-          value={website}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.website?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Phone</Form.Label>
-        <Form.Control
-          type="number"
-          name="phone"
-          value={phone}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.phone?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Address</Form.Label>
-        <Form.Control
-          type="text"
-          name="address"
-          value={address}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.address?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-
-      <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
-      >
-        cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
-      </Button>
+      <Row xs={1} md={2} className="g-4">
+        <Col>
+          <h3 className={styles.ListHeader}>Event Details</h3>
+          <Form.Group>
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.name?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>About</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={6}
+              name="about"
+              value={about}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.about?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>Date</Form.Label>
+            <Form.Control
+              type="date"
+              name="date"
+              value={date}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.date?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>Start Time</Form.Label>
+            <Form.Control
+              type="time"
+              name="start_time"
+              value={start_time}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.start_time?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>End Time</Form.Label>
+            <Form.Control
+              type="time"
+              name="end_time"
+              value={end_time}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.end_time?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>Platform URL</Form.Label>
+            <Form.Control
+              type="url"
+              name="platform"
+              value={platform}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.platform?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              type="text"
+              name="location"
+              value={location}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.location?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+        </Col>
+        <Col>
+          <h3 className={styles.ListHeader}>Organiser Details</h3>
+          <Form.Group>
+            <Form.Label>Organiser</Form.Label>
+            <Form.Control
+              type="text"
+              name="organiser"
+              value={organiser}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.organiser?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.email?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>Website</Form.Label>
+            <Form.Control
+              type="url"
+              name="website"
+              value={website}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.website?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>Phone</Form.Label>
+            <Form.Control
+              type="number"
+              name="phone"
+              value={phone}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.phone?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <Form.Group>
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              type="text"
+              name="address"
+              value={address}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.address?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+        </Col>
+      </Row>
+      <Row className="justify-content-md-center">
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Blue}`}
+            onClick={() => history.goBack()}
+          >
+            cancel
+          </Button>
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Blue}`}
+            type="submit"
+          >
+            create
+          </Button>
+      </Row>
     </div>
   );
 
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+        <Col className="py-2 p-0 p-md-2" md={6} lg={6}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
@@ -331,11 +343,10 @@ function EventCreateForm() {
                 {message}
               </Alert>
             ))}
-
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        <Col md={6} lg={6} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>

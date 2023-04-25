@@ -26,6 +26,13 @@
     text-align: center;
 }
 
+.ListHeader {
+    background-color: #104b87;
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+}
+
 .Row {
     height: calc(100vh - 81px);
 }
