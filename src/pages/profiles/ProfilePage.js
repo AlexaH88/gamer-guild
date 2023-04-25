@@ -17,6 +17,7 @@ import Event from "../events/Event";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no_results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import AddContentButton from "../../components/AddContentButton";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -120,6 +121,14 @@ function ProfilePage() {
             <Col className="my-2">
               <div>following</div>
               <div className={styles.Count}>{profile?.following_count}</div>
+            </Col>
+          </Row>
+          <Row className="mt-2 justify-content-space-between">
+            <Col className="my-2">
+              <AddContentButton url="/posts/create" text="Add Post" />
+            </Col>
+            <Col className="my-2">
+              <AddContentButton url="/events/create" text="Add Event" />
             </Col>
           </Row>
         </Col>
