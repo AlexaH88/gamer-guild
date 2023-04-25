@@ -145,16 +145,16 @@ const Event = (props) => {
                     className={`${styles.EventIcons} fa-solid fa-clock`}
                     aria-hidden="true"
                   ></i>{" "}
-                  {start_time}
+                  Start: {start_time}
                 </ListGroupItem>
               )}
               {end_time && (
                 <ListGroupItem className="d-flex justify-content-between align-items-center">
                   <i
-                    className={`${styles.EventIcons} fa-solid fa-stopwatch`}
+                    className={`${styles.EventIcons} fa-regular fa-clock`}
                     aria-hidden="true"
                   ></i>{" "}
-                  {end_time}
+                  End: {end_time}
                 </ListGroupItem>
               )}
               {platform && (
@@ -199,16 +199,16 @@ const Event = (props) => {
                     className={`${styles.EventIcons} fa-solid fa-clock`}
                     aria-hidden="true"
                   ></i>{" "}
-                  {start_time}
+                  Start: {start_time}
                 </ListGroupItem>
               )}
               {end_time && (
                 <ListGroupItem className="d-flex justify-content-between align-items-center">
                   <i
-                    className={`${styles.EventIcons} fa-solid fa-stopwatch`}
+                    className={`${styles.EventIcons} fa-regular fa-clock`}
                     aria-hidden="true"
                   ></i>{" "}
-                  {end_time}
+                  End: {end_time}
                 </ListGroupItem>
               )}
               {platform && (
