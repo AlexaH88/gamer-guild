@@ -9,9 +9,8 @@
 - Attend and unattend events
 - Create, read, update and delete poll responses on posts
 - Follow and unfollow users
-- Chat with followed users, and see who is online
 
-<!-- <h2 align="center"><img src="docs/readme/images/features/anthemology-homepage.png"></h2> -->
+<h2 align="center"><img src="docs/readme/images/features/gamer_guild_homepage.png"></h2>
 
 ## __User Experience (UX)__
 
