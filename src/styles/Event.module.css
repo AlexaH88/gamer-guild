@@ -22,6 +22,11 @@ h5 {
     color: #104b87;
 }
 
+.EventIcons:hover {
+    cursor:default;
+    color: #104b87;
+}
+
 .ListHeader {
     background-color: #104b87;
     color: #ffffff;

@@ -129,33 +129,52 @@ const Event = (props) => {
             <Card.Header className={styles.ListHeader}>
               Event Details
             </Card.Header>
-            <ListGroup>
+            <ListGroup className="justify-content-md-center">
               {date && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>When:</span> {date}
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-calendar-day`}
+                    aria-hidden="true"
+                  ></i>
+                  {date}
                 </ListGroupItem>
               )}
               {start_time && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>Start Time:</span>{" "}
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-clock`}
+                    aria-hidden="true"
+                  ></i>{" "}
                   {start_time}
                 </ListGroupItem>
               )}
               {end_time && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>End Time:</span> {end_time}
-                </ListGroupItem>
-              )}
-              {location && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>Where (in person):</span>{" "}
-                  {location}
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-stopwatch`}
+                    aria-hidden="true"
+                  ></i>{" "}
+                  {end_time}
                 </ListGroupItem>
               )}
               {platform && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>Where (virtual):</span>{" "}
-                  <Card.Link href={platform}>{platform}</Card.Link>
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-globe`}
+                    aria-hidden="true"
+                  ></i>{" "}
+                  <a href={platform} target="_blank" rel="noreferrer">
+                    Live Stream
+                  </a>
+                </ListGroupItem>
+              )}
+              {location && (
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-map-location-dot`}
+                    aria-hidden="true"
+                  ></i>{" "}
+                  {location}
                 </ListGroupItem>
               )}
             </ListGroup>
@@ -164,33 +183,52 @@ const Event = (props) => {
             <Card.Header className={styles.ListHeader}>
               Organiser Details
             </Card.Header>
-            <ListGroup>
+            <ListGroup className="justify-content-md-center">
               {date && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>When:</span> {date}
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-calendar-day`}
+                    aria-hidden="true"
+                  ></i>
+                  {date}
                 </ListGroupItem>
               )}
               {start_time && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>Start Time:</span>{" "}
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-clock`}
+                    aria-hidden="true"
+                  ></i>{" "}
                   {start_time}
                 </ListGroupItem>
               )}
               {end_time && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>End Time:</span> {end_time}
-                </ListGroupItem>
-              )}
-              {location && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>Where (in person):</span>{" "}
-                  {location}
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-stopwatch`}
+                    aria-hidden="true"
+                  ></i>{" "}
+                  {end_time}
                 </ListGroupItem>
               )}
               {platform && (
-                <ListGroupItem>
-                  <span className={styles.EventInfo}>Where (virtual):</span>{" "}
-                  <Card.Link href={platform}>{platform}</Card.Link>
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-globe`}
+                    aria-hidden="true"
+                  ></i>{" "}
+                  <a href={platform} target="_blank" rel="noreferrer">
+                    Live Stream
+                  </a>
+                </ListGroupItem>
+              )}
+              {location && (
+                <ListGroupItem className="d-flex justify-content-between align-items-center">
+                  <i
+                    className={`${styles.EventIcons} fa-solid fa-map-location-dot`}
+                    aria-hidden="true"
+                  ></i>{" "}
+                  {location}
                 </ListGroupItem>
               )}
             </ListGroup>

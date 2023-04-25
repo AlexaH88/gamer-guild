@@ -96,7 +96,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/events"
             >
-              <i className="fa-solid fa-calendar"></i>
+              <i className="fa-solid fa-calendar-days"></i>
               <span>Events</span>
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
