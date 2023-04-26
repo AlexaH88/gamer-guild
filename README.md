@@ -320,7 +320,14 @@
 
 - As [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) states, this format comes from the browser and can not be changed. 
 
-- In order to avoid this issue, the date format was reverted to the required `yyyy-MM-dd` format. As a future implementation, a workaround could be to convert the format from one to the other with JavaScript as required. 
+- In order to avoid this issue, the date format was reverted to the required `yyyy-MM-dd` format. As a future implementation, a workaround could be to convert the format from one to the other with JavaScript as required.
+
+#### Token Refresh Bug:
+- Due to re-ocurring database errors on the back-end API - [see API README](https://gamer-guild-api.herokuapp.com/) - and having to delete all the data in my database, I encountered a very time-consuming issue on the front-end.
+
+- While in development mode on the front-end, and having just cleared my database of all data, I was getting a "User does not exist" error - despite the database being clean i.e. without a single user, and only trying to access the homepage. 
+
+- Thanks to tutor support, it became clear that I was still logged in with a previously existing user - before the data deletion - which any amount of refreshing the page couldn't fix. Simply deleting all cookies and data in the browser solved the issue immediately. 
 
 ### ***Known Bugs***
 
