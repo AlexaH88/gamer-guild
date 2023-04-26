@@ -10,7 +10,7 @@
 - Create, read, and delete poll responses on posts
 - Follow and unfollow users
 
-<h2 align="center"><img src="docs/readme/images/features/gamer_guild_homepage.png"></h2>
+<h2 align="center"><img src="docs/readme/images/features/gamer_guild_overview.png"></h2>
 
 ## __User Experience (UX)__
 
@@ -261,7 +261,10 @@
     - Font Awesome Favicon Generator was used to reproduce a favicon version of the [Font Awesome Headset Icon](https://fontawesome.com/icons/headset?f=classic&s=solid) used in the header app name.
 
 1. [Canva:](https://www.canva.com/)
-    - Canva was used to create the wireframes and mock-ups during the design process. 
+    - Canva was used to create the wireframes and mock-ups during the design process, as well as hero images and assets throughout the web app.
+
+1. [Am I Responsive:](https://ui.dev/amiresponsive)
+    - Am I Responsive was used to check for responsivity and to create the app overview image at the beginning of this README. 
 
 ## __Testing__
 
