@@ -20,7 +20,6 @@ import EventEditForm from "./pages/events/EventEditForm";
 import NotFound from "./components/NotFound";
 
 function App() {
-
   return (
     <div className={styles.App}>
       <NavBar />
@@ -47,12 +46,24 @@ function App() {
             render={() => <ProfileEditForm />}
           />
           {/* posts */}
-          <Route exact path="/" render={() => <PostsPage />} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <PostsPage message="GAME OVER! Just kidding, no results found. Adjust the search keyword." />
+            )}
+          />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           {/* events */}
-          <Route exact path="/events" render={() => <EventsPage />} />
+          <Route
+            exact
+            path="/events"
+            render={() => (
+              <EventsPage message="GAME OVER! Just kidding, no results found. Adjust the search keyword." />
+            )}
+          />
           <Route
             exact
             path="/events/create"
