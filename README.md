@@ -53,6 +53,21 @@
     <!-- - Navigation:
         - As a user I can view a navbar from every page so that I can navigate easily between pages -->
 
+### ***Entity Relationship Diagram***
+
+- The following Entity Relationship Diagram was created to show the models used. The in-built Django User model was used for this project, and the following custom models were created:
+  - Profile
+  - Follower
+  - Post
+  - Like
+  - Comment
+  - Event
+  - Reply
+  - Poll
+
+-   Entity Relationship Diagram:
+    ![Entity Relationship Diagram](./docs/readme/images/ux/entity_relationship_diagram.png)
+
 ### ***Design***
     
 -   #### Colour Palette
