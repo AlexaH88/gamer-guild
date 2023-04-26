@@ -184,6 +184,7 @@ function EventEditForm() {
           <Form.Group>
             <Form.Label>Date</Form.Label>
             <Form.Control
+              required
               type="date"
               name="date"
               value={date}
@@ -198,6 +199,7 @@ function EventEditForm() {
           <Form.Group>
             <Form.Label>Start Time</Form.Label>
             <Form.Control
+              required
               type="time"
               name="start_time"
               value={start_time}
@@ -212,6 +214,7 @@ function EventEditForm() {
           <Form.Group>
             <Form.Label>End Time</Form.Label>
             <Form.Control
+              required
               type="time"
               name="end_time"
               value={end_time}
@@ -224,13 +227,17 @@ function EventEditForm() {
             </Alert>
           ))}
           <Form.Group>
-            <Form.Label>Platform URL</Form.Label>
+            <Form.Label>Live Stream</Form.Label>
             <Form.Control
               type="url"
               name="platform"
               value={platform}
               onChange={handleChange}
             />
+            <Form.Text className="mb-4">
+              Please ensure you are using a complete url for your link, e.g.
+              https://www.youtube.com/
+            </Form.Text>
           </Form.Group>
           {errors?.platform?.map((message, idx) => (
             <Alert variant="warning" key={idx}>
@@ -290,6 +297,10 @@ function EventEditForm() {
               value={website}
               onChange={handleChange}
             />
+            <Form.Text className="mb-4">
+              Please ensure you are using a complete url for your link, e.g.
+              https://www.youtube.com/
+            </Form.Text>
           </Form.Group>
           {errors?.website?.map((message, idx) => (
             <Alert variant="warning" key={idx}>
@@ -299,6 +310,7 @@ function EventEditForm() {
           <Form.Group>
             <Form.Label>Phone</Form.Label>
             <Form.Control
+              required
               type="tel"
               name="phone"
               value={phone}

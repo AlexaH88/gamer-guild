@@ -86,10 +86,10 @@ function PostCreateForm() {
           value={video}
           onChange={handleChange}
         />
+        <Form.Text className="mb-4">
+          Please ensure you are using an embed url for your video!
+        </Form.Text>
       </Form.Group>
-      <Form.Text className="mb-4">
-        Please ensure you are using an embed url for your video!
-      </Form.Text>
       {errors?.video?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
