@@ -121,7 +121,6 @@ function EventEditForm() {
 
     formData.append("name", name);
     formData.append("about", about);
-    formData.append("image", imageInput.current.files[0]);
     formData.append("platform", platform);
     formData.append("date", date);
     formData.append("start_time", start_time);
