@@ -30,7 +30,7 @@ function EventPage() {
         setEvent({ results: [event] });
         setPolls(polls);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
