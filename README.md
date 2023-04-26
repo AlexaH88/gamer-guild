@@ -322,22 +322,46 @@
 
 ### ***Manual Testing***
 
-<!-- - Manual testing was performed app-wide to ensure a smooth and positive user experience. 
+- Manual testing was performed consistently app-wide to ensure a smooth and positive user experience. 
 
-- Consistent testing was carried out to ensure there was a logical flow when using the app, and that user's expectations for where links would take them, and what would follow user actions were respected.
+#### Links:
+- All links were checked, ensuring they opened in new tabs if external, and corresponded to the button or link name in question.
 
-- Alert messages are displayed when a user has completed an action, to explain why they are not seeing any data, or if input is incorrect or required:
-  ![Signup Success Message](docs/readme/images/testing/messages-sign-up-successful.png)
-  ![Signup Error Message](docs/readme/images/testing/messages-signup-passwords-not-matching.png)
-  ![Login Success Message](docs/readme/images/testing/messages-login-successful.png)
-  ![Login Error Message](docs/readme/images/testing/messages-login-passwords-not-matching.png)
-  ![Logout Success Message](docs/readme/images/testing/messages-sign-up-successful.png)
-  ![Input Required Song Search Message](docs/readme/images/testing/messages-input-required-song-search.png)
-  ![Input Required Song Search Message](docs/readme/images/testing/messages-input-required-add-song.png)
-  ![Add Song Success Message](docs/readme/images/testing/messages-song-add-successful.png)
-  ![Edit Song Success Message](docs/readme/images/testing/messages-song-edit-successful.png)
-  ![Delete Song Success Message](docs/readme/images/testing/messages-song-edit-successful.png)
-  ![Same Title Error Message](docs/readme/images/testing/messages-same-title-error.png) -->
+- Example - sign in link displays the sign in form as expected, and the sign in icon is highlighted turquoise to show it's active
+![Manual Testing Links](./docs/readme/images/testing/manual_testing_links.png)
+
+#### Forms:
+- All forms were checked, ensuring that users were given accurate feedback regarding inputs, that the inputted data submitted was correct on the back-end, and that the data was again displayed correctly when editing content.
+
+- Example - users receive feedback for required input fields
+![Manual Testing Forms](./docs/readme/images/testing/manual_testing_forms.png)
+
+#### Redirect:
+- Users are swiftly redirected from any urls they should not have access to, such as comment creation when they are not logged in, or editing and deleting content when they are not the owner of these - when these urls are entered into the browser. 
+
+#### Authentication:
+- Sign up, sign in and sign out functionality was tested, ensuring users are able to access the app as desired, and distinguishing between content available to logged in and logged out users.
+
+- Example - logged out users can't follow or unfollow other users
+![Manual Testing Authentication](./docs/readme/images/testing/manual_testing_authentication.png)
+
+#### Ownership:
+- Dropdown edit and delete functionality only displays on content for the owner of these, as is expected.
+
+- Example - dropdown menu appears on owner's event
+![Manual Testing Ownership](./docs/readme/images/testing/manual_testing_ownership.png)
+
+#### Toggles:
+- Liking posts, following users and attending events function as expected, with owners not being able to do this on their own content or profile, and users being given on click color change feedback on the icons as well as the count changing where appropriate.
+
+- Example - owners can't like their own posts
+![Manual Testing Toggles](./docs/readme/images/testing/manual_testing_toggles.png)
+
+#### CRUD:
+- All CRUD functionality was tested and is accurately replicated on the front-end, and represents what was created in the back-end.
+
+- Example - users can read and update their profiles but cannot delete them
+![Manual Testing CRUD](./docs/readme/images/testing/manual_testing_crud.png)
 
 - #### Accessibility Testing
 
