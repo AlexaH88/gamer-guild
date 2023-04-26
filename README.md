@@ -268,30 +268,6 @@
 
 ## __Testing__
 
-### ***HTML, CSS, and React JS Testing***
-
-<!-- - [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to validate every page of the project to ensure there were no HTML syntax errors in the project.
-
-  - All test results:
-  ![Homepage HTML](docs/readme/images/testing/validator-html-homepage.png)
-  ![Song Search HTML](docs/readme/images/testing/validator-html-song-search-page.png)
-  ![Signup HTML](docs/readme/images/testing/validator-html-sign-up-page.png)
-  ![Login HTML](docs/readme/images/testing/validator-html-login-page.png)
-  ![About HTML](docs/readme/images/testing/validator-html-about-page.png)
-  ![Songs HTML](docs/readme/images/testing/validator-html-songs-page.png)
-  ![Song Lyrics HTML](docs/readme/images/testing/validator-html-song-lyrics-page.png)
-  ![Admin HTML](docs/readme/images/testing/validator-html-add-song-page.png)
-  ![Add Song HTML](docs/readme/images/testing/validator-html-admin-page.png)
-  ![Edit Song HTML](docs/readme/images/testing/validator-html-edit-song-page.png)
-  ![Delete Song HTML](docs/readme/images/testing/validator-html-delete-song-page.png)
-
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to validate every page of the project to ensure there were no CSS syntax errors in the project.
-    ![Results CSS](docs/readme/images/testing/validator-css-errors.png)
-    ![Results CSS](docs/readme/images/testing/validator-css-warnings.png)
-
--   [JS Hint](https://jshint.com/) was used to validate the very minimal JavaScript in this project.
-    ![Results JavaScript](docs/readme/images/testing/validator-js.png) -->
-
 ### ***Manual Testing***
 
 <!-- - Manual testing was performed app-wide to ensure a smooth and positive user experience. 
@@ -311,39 +287,7 @@
   ![Delete Song Success Message](docs/readme/images/testing/messages-song-edit-successful.png)
   ![Same Title Error Message](docs/readme/images/testing/messages-same-title-error.png) -->
 
-### ***Performance, Accessibility, Best Practices, and SEO Testing***
-
-  <!-- - [Chrome DevTools Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test Performance, Accessibility, Best Practices and SEO. All tests performed in the 90-100 green score, except for in the Performance category that came just below in the yellow range.  -->
-
-- #### Desktop Testing with [Chrome DevTools Lighthouse](https://developers.google.com/web/tools/lighthouse)
-
-  <!-- ![Homepage](docs/readme/images/testing/lighthouse-homepage-desktop.png)
-  ![Search](docs/readme/images/testing/lighthouse-search-desktop.png)
-  ![Songs](docs/readme/images/testing/lighthouse-songs-desktop.png)
-  ![About](docs/readme/images/testing/lighthouse-about-desktop.png)
-  ![My Songs](docs/readme/images/testing/lighthouse-my-songs-desktop.png)
-  ![Admin](docs/readme/images/testing/lighthouse-admin-desktop.png)
-  ![Signup](docs/readme/images/testing/lighthouse-signup-desktop.png)
-  ![Login](docs/readme/images/testing/lighthouse-login-desktop.png)
-  ![Add Song](docs/readme/images/testing/lighthouse-add-song-desktop.png)
-  ![Edit Song](docs/readme/images/testing/lighthouse-edit-song-desktop.png)
-  ![Delete Song](docs/readme/images/testing/lighthouse-delete-song-desktop.png) -->
-
-- #### Mobile Testing with [Chrome DevTools Lighthouse](https://developers.google.com/web/tools/lighthouse)
-    
-  <!-- ![Homepage](docs/readme/images/testing/lighthouse-homepage-mobile.png)
-  ![Search](docs/readme/images/testing/lighthouse-search-mobile.png)
-  ![Songs](docs/readme/images/testing/lighthouse-songs-mobile.png)
-  ![About](docs/readme/images/testing/lighthouse-about-mobile.png)
-  ![My Songs](docs/readme/images/testing/lighthouse-my-songs-mobile.png)
-  ![Admin](docs/readme/images/testing/lighthouse-admin-mobile.png)
-  ![Signup](docs/readme/images/testing/lighthouse-signup-mobile.png)
-  ![Login](docs/readme/images/testing/lighthouse-login-mobile.png)
-  ![Add Song](docs/readme/images/testing/lighthouse-add-song-mobile.png)
-  ![Edit Song](docs/readme/images/testing/lighthouse-edit-song-mobile.png)
-  ![Delete Song](docs/readme/images/testing/lighthouse-delete-song-mobile.png) -->
-
-- #### Further Accessibility Testing
+- #### Accessibility Testing
 
     - [EightShapes Contrast Grid](http://eightshapes.com/) was used to test the colour palette of the site for any accessibility issues. Only AAA and AA rating options were used on the site. 
     ![Colour Palette Contrast Grid](./docs/readme/images/testing/eightshapes_contrast_grid.png)
@@ -354,7 +298,7 @@
 
 - [React Bootstrap:](https://react-bootstrap.github.io/getting-started/introduction) was used to ensure the app is responsive throughout. 
 
-- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) was used to regularly check for any responsive design issues. 
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Am I Responsive:](https://ui.dev/amiresponsive) were used to regularly check for any responsive design issues. 
 
 ### ***Further Testing***
 
@@ -369,10 +313,14 @@
 ### ***Fixed Bugs***
 
 #### Event Date Bug:
-- When editing an event the date field was not populated with the date the user added when creating the event. On further inspection in the console, this error was caused by the date format not being the same as the form required:
+- When editing an event on the EventEditForm the date field was not populated with the existing date previously created by the user via the EventCreateForm. 
+
+- On further inspection in the console, this error was caused by the date format not being the same as the form required, as I had applied a DATE_FORMAT in the back-end API settings to make the date more human-friendly and readable e.g. 01/05/2023. 
 ![Event Dates Bug](./docs/readme/images/testing/bug_date_events.png)
 
 - As [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date) states, this format comes from the browser and can not be changed. 
+
+- In order to avoid this issue, the date format was reverted to the required `yyyy-MM-dd` format. As a future implementation, a workaround could be to convert the format from one to the other with JavaScript as required. 
 
 ### ***Known Bugs***
 
