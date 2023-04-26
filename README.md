@@ -266,6 +266,35 @@
 1. [Am I Responsive:](https://ui.dev/amiresponsive)
     - Am I Responsive was used to check for responsivity and to create the app overview image at the beginning of this README. 
 
+## __Components__
+
+- A variety of components are included in this project which allow for reuse across the app. Along with the components taken from the Code Institute [Moments Walkthrough](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/), several custom components were created:
+
+### ***AddContentButton***
+
+- The AddContentButton component was created to allow for the creation of posts and events, and is present on the following pages, allowing the user to quickly and easily create content - no matter where they find themselves:
+    - PostsPage
+    - PostPage
+    - EventsPage
+    - EventPage
+    - ProfilePage
+
+### ***FillerImage***
+
+- The FillerImage component was created to allow for the reuse of a hero image on the SignUp and SignIn forms. 
+
+### ***InfoContainer***
+
+- The InfoContainer component was created to allow for the reuse of info text on the SignUp and SignIn forms, redirecting to the SignUp or SignIn pages directly as required by the user.
+
+### ***YouTubeEmbed***
+
+- The YouTubeEmbed component was created to allow for the embedding of YouTube videos on posts, including previews on the respective forms, and is present on:
+    - PostsPage
+    - PostPage
+    - PostCreateForm
+    - PostEditForm
+
 ## __Testing__
 
 ### ***Manual Testing***
@@ -446,4 +475,4 @@ Massive thanks to:
 
 - Tutor Support, Student Care and the Slack Community at [Code Institute](https://codeinstitute.net/global/) for their support.
 
-- And last but not least, my fiancé [Antoine Masson](https://www.linkedin.com/in/antoine-masson-55b65094/) for helping me through the stressful moments and for supporting us financially while I make this big career change. 
+- And last but not least, my husband [Antoine Masson](https://www.linkedin.com/in/antoine-masson-55b65094/) for helping me through the stressful moments and for supporting us financially while I make this big career change. 
