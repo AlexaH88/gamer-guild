@@ -123,14 +123,16 @@ function ProfilePage() {
               <div className={styles.Count}>{profile?.following_count}</div>
             </Col>
           </Row>
-          <Row className="mt-2 justify-content-space-between">
-            <Col className="my-2">
-              <AddContentButton url="/posts/create" text="Add Post" />
-            </Col>
-            <Col className="my-2">
-              <AddContentButton url="/events/create" text="Add Event" />
-            </Col>
-          </Row>
+          {profile?.is_owner && (
+            <Row className="mt-2 justify-content-space-between">
+              <Col className="my-2">
+                <AddContentButton url="/posts/create" text="Add Post" />
+              </Col>
+              <Col className="my-2">
+                <AddContentButton url="/events/create" text="Add Event" />
+              </Col>
+            </Row>
+          )}
         </Col>
         <Col lg={3} className="text-lg-right">
           {currentUser &&

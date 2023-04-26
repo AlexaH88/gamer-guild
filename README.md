@@ -228,7 +228,15 @@
 
 ### ***Future Implementations***
 
-<!-- - #### General -->
+- #### Posts:
+    - Being able to see who has liked a post, allowing the users to better understand who has interacted with posts, and find like-minded individuals. 
+
+- #### Events:
+    - Being able to see who is attending an event, allowing the users to better understand who has interacted with events, and connect with users before the event. 
+
+- #### Chat:
+    - A chat functionality, allowing users to send each other messages, and thus to create stronger connections between like-minded people. 
+    - Seeing which users are online including links to the chat page, enabling users to have real-time conversations.
 
 ## __Technologies Used__
 
