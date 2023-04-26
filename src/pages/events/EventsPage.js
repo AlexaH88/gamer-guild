@@ -39,7 +39,7 @@ function EventsPage({ message }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [query, pathname]);
+  }, [query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
