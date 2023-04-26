@@ -7,12 +7,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function PollCreateForm(props) {
-  const {
-    setEvent,
-    setPolls,
-    profileImage,
-    profile_id,
-  } = props;
+  const { setEvent, setPolls, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -51,14 +46,19 @@ function PollCreateForm(props) {
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
+          <Form.Label>Do you want to see more events like this?</Form.Label>
           <Form.Control
             className={styles.Form}
-            placeholder="my poll..."
-            as="textarea"
+            defaultValue="Vote..."
+            as="select"
+            name="content"
             value={content}
             onChange={handleChange}
-            rows={2}
-          />
+          >
+            <option value="definitely">Definitely</option>
+            <option value="meh">Meh</option>
+            <option value="hard_no">Hard No</option>
+          </Form.Control>
         </InputGroup>
       </Form.Group>
       <button
