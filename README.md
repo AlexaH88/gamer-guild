@@ -452,20 +452,31 @@ The site is now live and operational
 
 ### ***Media***
 
-- The hero images, default images, upload and no results images were created by the app creator [Alexa Hendry](https://github.com/AlexaH88) using [Canva:](https://www.canva.com/):
+- The hero images, default images, upload and no results images were created by the app creator [Alexa Hendry](https://github.com/AlexaH88) using [Canva:](https://www.canva.com/).
+
+- Credits to [Font Awesome](https://fontawesome.com/) for the ghost icon and the events icon on the default images.
+
+- Credits to [Trendify](https://www.canva.com/p/trendify/) for the retro upload and alien used on the Upload and No Results images.
 
     - Hero Images:
         - Sign Up Hero: ![Sign Up Hero](./docs/readme/images/ux/hero_insert_coin.png)
         - Sign In Hero: ![Sign In Hero](./docs/readme/images/ux/hero_game_on.png)
     
     - Default Images:
-        - Default Profile: ![Default Profile](./docs/readme/images/ux/default_profile.png)
-        - Default Post: ![Default Post](./docs/readme/images/ux/default_post.png)
-        - Default Event: ![Default Event](./docs/readme/images/ux/default_event.png)
+        - Default Profile: \
+            ![Default Profile](./docs/readme/images/ux/default_profile.png)
+        - Default Event: \
+            ![Default Event](./docs/readme/images/ux/default_event.png)
     
-    - Upload and No Results Images:
-        - Upload: ![Upload](./docs/readme/images/ux/upload.png)
-        - No Results: ![No Results](./docs/readme/images/ux/no_results.png)
+    - Upload Image:
+        - Upload: \
+            ![Upload](./docs/readme/images/ux/upload.png)
+    
+    - No Results Images:
+        - No Results (white background): \
+            ![No Results](./docs/readme/images/ux/no_results.png)
+        - No Results Pages (pale blue background): \
+            ![No Results Pages](./docs/readme/images/ux/no_results_pages.png)
 
 ### ***Acknowledgements***
 
