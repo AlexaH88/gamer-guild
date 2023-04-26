@@ -7,7 +7,7 @@
 - Create, read, update and delete comments on posts
 - Create, read, update and delete events
 - Attend and unattend events
-- Create, read, update and delete poll responses on posts
+- Create, read, and delete poll responses on posts
 - Follow and unfollow users
 
 <h2 align="center"><img src="docs/readme/images/features/gamer_guild_homepage.png"></h2>
@@ -16,7 +16,7 @@
 
 ### ***User Stories***
 
-- The User Stories for this project were created with [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects), and can be found here: [Portfolio Project 5](https://github.com/users/AlexaH88/projects/5)
+- The User Stories for this project were created with [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects), and can be found [here](https://github.com/users/AlexaH88/projects/5).
 
 - The User Stories were organised by must haves, should haves, and could haves, and allocated to appropriate weekly sprints, covering a period of 5 weeks total.
 ![User Stories Sprint Chart](./docs/readme/images/ux/user_stories_sprints.png)
