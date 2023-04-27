@@ -401,6 +401,17 @@
 
 ### ***Known Bugs***
 
+#### Default Image Bug
+- When creating an event there is an error on the front-end regarding the default image. When a user tries to create an event but doesn't upload an image, the default image specified on the back-end should apply. However, the form throws an error:
+    ![Default Image Bug Front End](/docs/readme/images/testing/bug_default_image_front_end.png)
+
+- However, this error doesn't occur on the back-end and the default image is applied without issue:
+    ![Default Image Bug Back End](/docs/readme/images/testing/bug_default_image_back_end.png)
+
+- Despite using the identical code as on the Moments Walkthrough on posts, checking that Cloudinary was connected up properly, searching on Google and Slack, and asking tutor support, no solution was found.
+
+- The workaround was to include an image required info text on the form to ensure users would always select an image.
+
 #### Poll and Discussion Bug
 - A poll and discussion model were created on the back-end to be used with events. Though the back-end functionality exists and doesn't cause any issues, the front-end functionality was impossible to implement. My assumption was that the choice fields on polls was causing an issue and that my front-end code was not correct. However, when implementing the discussion on events, which is identical to comments on posts, the same error appeared and nothing could be done about it.
 
