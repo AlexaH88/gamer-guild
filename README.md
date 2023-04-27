@@ -397,11 +397,23 @@
 
 - While in development mode on the front-end, and having just cleared my database of all data, I was getting a "User does not exist" error - despite the database being clean i.e. without a single user, and only trying to access the homepage. 
 
-- Thanks to tutor support, it became clear that I was still logged in with a previously existing user - before the data deletion - which any amount of refreshing the page couldn't fix. Simply deleting all cookies and data in the browser solved the issue immediately. 
+- Thanks to tutor support, it became clear that I was still logged in with a previously existing user - before the data deletion - which any amount of refreshing the page couldn't fix. Simply deleting all cookies and data in the browser solved the issue immediately.
 
 ### ***Known Bugs***
 
-<!-- - Not a bug per se but something that decreases UX on the app is the mobile version of large data list of the songs. This is mentioned in future implementations and is to be improved upon.  -->
+#### Poll and Discussion Bug
+- A poll and discussion model were created on the back-end to be used with events. Though the back-end functionality exists and doesn't cause any issues, the front-end functionality was impossible to implement. My assumption was that the choice fields on polls was causing an issue and that my front-end code was not correct. However, when implementing the discussion on events, which is identical to comments on posts, the same error appeared and nothing could be done about it.
+
+- Recurring front-end TypeError:
+    ![Poll Bug Error](/docs/readme/images/testing/bug_poll_error.png)
+
+- Front-end displaying data correctly when created in the back-end:
+    ![Poll Bug Back End Data](/docs/readme/images/testing/bug_poll_back_end_data.png)
+
+- Ability to create the data in the back-end: 
+    ![Poll Bug Back End Functionality](/docs/readme/images/testing/bug_poll_back_end_functionality.png)
+
+- Ultimately the poll and discussion functionality was therefore removed.
 
 [//]: <> (Deployment section taken from Dave Horrocks, and credited in the Content section of the Credits)
 
