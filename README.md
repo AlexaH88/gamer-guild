@@ -18,7 +18,7 @@
 
 - The User Stories for this project were created with [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects), and can be found [here](https://github.com/users/AlexaH88/projects/5).
 
-- The User Stories were organised by must haves, should haves, and could haves, and allocated to appropriate weekly sprints, covering a period of 5 weeks total.
+- The User Stories were organised by must haves, should haves, and could haves, and allocated to appropriate weekly sprints, covering a period of 5 weeks total. Any features to be implemented in the future were ultimately allocated the wont have label. 
 ![User Stories Sprint Chart](./docs/readme/images/ux/user_stories_sprints.png)
 
 - Included in the labels were the in-app location of the desired functionality, as well as any required back-end API functionality.  
@@ -26,32 +26,17 @@
 -   #### Sprint 1 (Must Have)
     ![User Stories Sprint 1](./docs/readme/images/ux/user_stories_sprint_1.png)
 
-    <!-- - Navigation:
-        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
-
 -   #### Sprint 2 (Must Have)
     ![User Stories Sprint 2](./docs/readme/images/ux/user_stories_sprint_2.png)
-
-    <!-- - Navigation:
-        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
 
 -   #### Sprint 3 (Should Have)
     ![User Stories Sprint 3](./docs/readme/images/ux/user_stories_sprint_3.png)
 
-    <!-- - Navigation:
-        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
-
 -   #### Sprint 4 (Should Have)
     ![User Stories Sprint 4](./docs/readme/images/ux/user_stories_sprint_4.png)
 
-    <!-- - Navigation:
-        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
-
 -   #### Sprint 5 (Could Have)
     ![User Stories Sprint 5](./docs/readme/images/ux/user_stories_sprint_5.png)
-
-    <!-- - Navigation:
-        - As a user I can view a navbar from every page so that I can navigate easily between pages -->
 
 ### ***Entity Relationship Diagram***
 
