@@ -376,6 +376,9 @@ function EventEditForm() {
                 onChange={handleChangeImage}
                 ref={imageInput}
               />
+              <Form.Text className="mb-4">
+                The image field is required.
+              </Form.Text>
             </Form.Group>
             {errors?.image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
