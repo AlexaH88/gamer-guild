@@ -139,92 +139,103 @@
 
 ### ***Existing Features***
 
-<!-- - #### Navigation Bar -->
+- #### Navigation Bar
 
-  <!-- - The navigation bar includes various clickable links, allowing the user to easily access the pages on the site. Access is distinct between admin superusers and standard users, with restricted access to standard users. There is also signup, login and logout functionality which changes according to the status of the user.   
-    - Sign up / login view:
-    ![Nav Bar Sign Up Login](docs/readme/images/features/anthemology-nav-login.png)
-    - Standard User Login:
-    ![Nav Bar Standard User](docs/readme/images/features/anthemology-nav-logout-standard-user.png)
-    - Superuser Login:
-    ![Nav Bar Superuser](docs/readme/images/features/anthemology-nav-logout-superuser.png)
+    ![Nav Bar](docs/readme/images/features/gamer_guild_navbar.png)
 
-  - The main pages on the app are:
-    - Homepage
-    - Search
-    - Songs
-    - About
-    - My Songs (for standard users)
-    - Admin (for admin superusers)
-    - Forms (signup, login, add song, edit song, delete song)
+    - The navigation bar includes various clickable links, allowing the user to easily access the pages on the app. The links change according to whether the user is signed in or out, giving them access to more content once signed in for example.    
+    
+  - The links on the navbar are:
+    - Gamer Guild logo
+    - Home
+    - Events
+    - Profile (displayed as logged in username)
+    - Sign Up
+    - Sign In
+    - Sign Out
 
   - In order to make navigation easier for the user, the navigation bar is in a fixed position, meaning that it remains at the top of the page as the user scrolls down.
 
-  - The navigation bar follows the same style as the footer, and appears in the same format on all pages - this allows for consistency throughout the site.
+  - The navigation bar appears in the same format on all pages - this allows for consistency throughout the app.
 
-  - A hover effect of the text being underlined in white or buttons turning white, and the cursor becoming a pointer is included, allowing the user to understand that the link is clickable.
+  - A hover effect of the icons being changing to a turquoise colour, and the cursor becoming a pointer on both the text and icons is included, allowing the user to understand that the link is clickable.
 
-  - The navigation bar was created with HTML and CSS  and is fully responsive across devices.
-    ![Responsive Nav Bar](docs/readme/images/features/anthemology-nav-responsive.png)
+  - The navigation bar was created using React Bootstrap and is fully responsive across devices.
 
 - #### Homepage
 
-  ![Homepage](docs/readme/images/features/anthemology-homepage.png)
+  ![Homepage](docs/readme/images/features/gamer_guild_homepage.png)
 
-  - The homepage is the user's first port of call and consists of a captive hero image of vinyls strewn across a surface, immediately introducing the musical theme of the app. 
+  - The homepage is the user's first port of call and consists of user posts on video games, immediately making the type of community clear. 
 
-  - The feaature here is the search bar, allowing the user to easily search the database of songs. This page was deliberately kept minimalist so as not to overwhelm the user upon arrival. 
+  - The posts show the user's username, and profile image, when it was posted, the title, content and video posted, as well as any user interaction in the form of likes and comments counts. 
 
-- #### Search Page
+  - The features here are:
+    - A search bar, allowing the user to easily search the existing posts by username, title and content.
+    - An Add Post button allowing the user to easily create a post of their own.
+    - A Popular Profiles component, allowing users to quickly see other users on the app and giving them the possibility to follow and unfollow users or visit their profiles.
 
-  ![Search Page](docs/readme/images/features/anthemology-search.png)
+- #### Post Page
 
-  - The Search page gives the user all the songs that match their searched keyword, whether it be in the title, artist or album name of the song. 
+  ![Post](docs/readme/images/features/gamer_guild_post.png)
 
-  - The page also has a hero image of half a vinyl that appears to drops down from the top of the screen. This hero image features on all pages other than the homepage and the song detail page.
+  - The post page gives further detail on the post in question, and in addition to the homepage version of the post the comments section is shown. 
 
-- #### Songs Page
+  - The features here are:
+    - Ability to create a comment if logged in.
+    - Ability to edit or delete post if you are the owner of the post.
 
-  ![Songs Page](docs/readme/images/features/anthemology-songs.png)
+- #### Events Page
 
-  - The Songs page allows the user to view all the songs that have been uploaded into the database, by both admin and regular users. 
+![Events](docs/readme/images/features/gamer_guild_events.png)
 
-  - The page consists of a table showing alphabetically sorted entried by Title, by Artist and by Album.
+  - The events page consists of events created by users. 
 
-- #### Signup Page
+  - The events show the user's username, and profile image, when it was created, the title, content and image created, as well as event details and organiser details, and any user interaction in the form of attendance replies and polls counts. 
 
-  ![Signup Page](docs/readme/images/features/anthemology-signup.png)
+  - The features here are:
+    - A search bar, allowing the user to easily search the existing events by username, title and content.
+    - An Add Event button allowing the user to easily create an event of their own.
+    - A Popular Profiles component, allowing users to quickly see other users on the app and giving them the possibility to follow and unfollow users or visit their profiles.
 
-  - The Signup page is only accessible is logged out. This page consists of a form to be completed in order to sign up and create an account.
+- #### Event Page
 
-  - The form includes warning and error messages on input, ensuring the user is always informed about required or incorrect input.
+  ![Event](docs/readme/images/features/gamer_guild_event.png)
 
-  - Once a user has signed up, they are informed via a message alert at the top of the page, which they can close at their convenience.
+  - The event page gives further detail on the event in question, and in addition to the events page version of the event the polls section is shown. 
 
-- #### Signin Page
+  - The features here are:
+    - Ability to create a poll vote if logged in.
+    - Ability to edit or delete event if you are the owner of the event.
 
-  ![Signin Page](docs/readme/images/features/anthemology-login.png)
+- #### Profile Page
 
-  - The Signin page is only accessible is logged out. This page consists of a form to be completed in order to login to an existing account.
+![Profile](docs/readme/images/features/gamer_guild_profile.png)
 
-  - The form includes warning and error messages on input, ensuring the user is always informed about required or incorrect input.
+  - The profile page consists conists of the selected user's profile - either your own via the navbar, or other users via clicking on their profile images. 
 
-  - Once a user has logged in, they are informed via a message alert at the top of the page, which they can close at their convenience. 
+  - The profiles show the user's username, profile image, bio, any social media links included, user stats regarding followers, posts and events, as well as any posts or events created by the user in question.
 
-- #### Footer
+  - The features here are:
+    - Follow/unfollow button when the user is not the profile owner.
+    - Add Post and Add Event buttons when the user is the profile owner.
+    - Dropdown to edit profile, change username, or change password if the user is the profile owner.
 
-  ![Footer](docs/readme/images/features/anthemology-footer.png)
+- #### Sign Up Page
 
-  - The footer follows the same style as the navigation bar, and appears in the same format on all pages - this allows for consistency throughout the site.
+  ![Sign Up Page](docs/readme/images/features/gamer_guild_signup.png)
 
-  - The footer contains three elements:
-    - The copyrighted site name on the left hand side. 
-    - Information about the site and how it was created. 
-    - Social media links, allowing the user to visit the site creator's LinkedIn and GitHub pages. Hovering over the link icons turns them purple to signal to the user that there is an interaction possible. All links are opened in separate tabs so that the user remains on the site. 
+  - The sign up page is only accessible if the user is logged out. This page consists of a form to be completed in order to sign up and create an account, and a link to the sign in page if the user already has an account.
 
-  - The footer was created with HTML and CSS only and is fully responsive across devices.
+  - An inviting hero image is included, alluding to the gaming theme with a retro Insert Coin message. 
 
-    ![Responsive Footer](docs/readme/images/features/anthemology-footer-responsive.png) -->
+- #### Sign In Page
+
+  ![Sign In Page](docs/readme/images/features/gamer_guild_signin.png)
+
+  - The sign in page is only accessible if the user is logged out. This page consists of a form to be completed in order to sign in, and a link to the sign up page if the user does not yet have an account.
+
+  - An inviting hero image is included, alluding to the gaming theme with a retro Game On message.
 
 ### ***Future Implementations***
 
