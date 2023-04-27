@@ -39,19 +39,24 @@ function PollEditForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
-      <Form.Label>Do you want to see more events like this?</Form.Label>
-          <Form.Control
-            className={styles.Form}
-            defaultValue="Vote..."
-            as="select"
-            name="poll"
-            value={content}
-            onChange={handleChange}
-          >
-            <option value="definitely">Definitely</option>
-            <option value="meh">Meh</option>
-            <option value="hard_no">Hard No</option>
-          </Form.Control>
+        <Form.Label
+          htmlFor="content"
+          className={`align-items-center ${styles.Heading}`}
+        >
+          Do you want to see more events like this?
+        </Form.Label>
+        <Form.Control
+          className={styles.Form}
+          defaultValue="Vote..."
+          as="select"
+          name="poll"
+          value={content}
+          onChange={handleChange}
+        >
+          <option value="definitely">Definitely</option>
+          <option value="meh">Meh</option>
+          <option value="hard_no">Hard No</option>
+        </Form.Control>
       </Form.Group>
       <div className="text-right">
         <button

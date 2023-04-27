@@ -55,7 +55,7 @@ function EventPage() {
               setPolls={setPolls}
             />
           ) : polls.results.length ? (
-            "Polls"
+            "Poll Results"
           ) : null}
           {polls.results.length ? (
             <InfiniteScroll
@@ -73,9 +73,9 @@ function EventPage() {
               next={() => fetchMoreData(polls, setPolls)}
             />
           ) : currentUser ? (
-            <span>No poll vote yet, be the first to create one!</span>
+            <span>No poll yet, be the first to vote!</span>
           ) : (
-            <span>No poll vote yet, log in to create one!</span>
+            <span>No poll yet, log in to vote!</span>
           )}
         </Container>
       </Col>

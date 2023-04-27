@@ -42,11 +42,16 @@ function PollCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
+        <Form.Label
+          htmlFor="content"
+          className={`align-items-center ${styles.Heading}`}
+        >
+          Do you want to see more events like this?
+        </Form.Label>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
-          <Form.Label>Do you want to see more events like this?</Form.Label>
           <Form.Control
             className={styles.Form}
             defaultValue="Vote..."
