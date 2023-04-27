@@ -47,7 +47,6 @@ function PollEditForm(props) {
         </Form.Label>
         <Form.Control
           className={styles.Form}
-          defaultValue="Vote..."
           as="select"
           name="poll"
           value={content}

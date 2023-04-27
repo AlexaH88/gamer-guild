@@ -54,7 +54,6 @@ function PollCreateForm(props) {
           </Link>
           <Form.Control
             className={styles.Form}
-            defaultValue="Vote..."
             as="select"
             name="content"
             value={content}
