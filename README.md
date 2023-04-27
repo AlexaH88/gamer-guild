@@ -7,7 +7,6 @@
 - Create, read, update and delete comments on posts
 - Create, read, update and delete events
 - Attend and unattend events
-- Create, read, and delete poll responses on posts
 - Follow and unfollow users
 
 <h2 align="center"><img src="docs/readme/images/features/gamer_guild_overview.png"></h2>
@@ -48,7 +47,7 @@
   - Comment
   - Event
   - Reply
-  - Poll
+  - Poll (this model could ultimately not be implemented on the front-end)
 
 -   Entity Relationship Diagram:
     ![Entity Relationship Diagram](./docs/readme/images/ux/entity_relationship_diagram.png)
@@ -176,7 +175,7 @@
 
   - The events page consists of events created by users. 
 
-  - The events show the user's username, and profile image, when it was created, the title, content and image created, as well as event details and organiser details, and any user interaction in the form of attendance replies and polls counts. 
+  - The events show the user's username, and profile image, when it was created, the title, content and image created, as well as event details and organiser details, and any user interaction in the form of attendance replies. 
 
   - The features here are:
     - A search bar, allowing the user to easily search the existing events by username, title and content.
@@ -187,10 +186,9 @@
 
   ![Event](docs/readme/images/features/gamer_guild_event.png)
 
-  - The event page gives further detail on the event in question, and in addition to the events page version of the event the polls section is shown. 
+  - The event page gives further detail on the event in question. 
 
   - The features here are:
-    - Ability to create a poll vote if logged in.
     - Ability to edit or delete event if you are the owner of the event.
 
 - #### Profile Page
