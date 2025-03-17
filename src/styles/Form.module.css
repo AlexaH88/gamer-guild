@@ -1,0 +1,86 @@
+.Form {
+    border: none;
+    border-bottom: 2px #54d9ff solid;
+}
+
+.Button {
+    border: none;
+    background-color: #104b87;
+    color: #ffffff;
+    border-radius: 100px;
+    padding: 4px 10px;
+    min-width: 75px;
+    margin: 5px;
+}
+
+.Button:hover {
+    cursor: pointer;
+    background-color: #54d9ff;
+    color: #104b87;
+}
+
+.Heading {
+    font-weight: bold;
+    color: #104b87;
+    display: block;
+    text-align: center;
+}
+
+.ListHeader {
+    background-color: #104b87;
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+}
+
+.Row {
+    height: calc(100vh - 81px);
+}
+
+.Input {
+    background: #ffffff;
+    border: 1px solid #f0f1f9;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color: #7177a1;
+    text-align: center;
+    padding: 10px;
+}
+
+.Header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.Link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.Link span {
+    color: #104b87;
+    font-weight: bold;
+}
+
+.Container {
+    min-height: 343px;
+}
+
+.Upload {
+    cursor: pointer;
+}
+
+.SignInCol {
+    height: 340px;
+}
+
+.SignUpCol {
+    height: 385px;
+}

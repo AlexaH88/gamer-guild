@@ -1,0 +1,53 @@
+.NavBar {
+    font-family: "Bungee", sans-serif;
+    background-color: #104b87;
+}
+
+.NavBar a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.NavBar a:hover i {
+    color: #54d9ff;
+    transition: color ease-in-out 0.3s;
+}
+
+.NavBar i {
+    color: #ffffff;
+    padding: 0px 8px 0px 8px;
+    vertical-align: middle;
+    font-size: 1.1rem;
+}
+
+.NavBar i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #54d9ff;
+}
+
+.NavBar span {
+    vertical-align: middle;
+}
+
+.NavBrand span {
+    color: #ffffff;
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+.NavBrand i {
+    font-size: 1.8rem;
+    vertical-align: middle;
+    padding: 0px 8px 0px 8px;
+}
+
+.NavLink {
+    padding: 0px 8px 0px 8px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.Active i {
+    color: #54d9ff;
+}

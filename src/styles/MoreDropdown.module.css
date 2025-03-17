@@ -1,0 +1,20 @@
+.DropdownItem {
+    display: inline-block;
+    max-width: 50%;
+    padding: 0px;
+}
+
+.DropdownItem:hover,
+.ProfileDropdownItem:hover {
+    background-color: transparent;
+}
+
+.ProfileDropdownItem:focus {
+    color: #000000;
+}
+
+.Absolute {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+}
