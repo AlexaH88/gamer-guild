@@ -1,6 +1,6 @@
 <h1 align="center">Gamer Guild</h1>
 
-[Gamer Guild](https://gamer-guild.herokuapp.com/) has been developed for anyone interested in gaming, allowing users to connect over their geeky passion. The web app includes the following functionality:
+[Gamer Guild](https://gamer-guild.onrender.com) has been developed for anyone interested in gaming, allowing users to connect over their geeky passion. The web app includes the following functionality:
 - Create, read and update profiles
 - Create, read, update and delete posts
 - Like and unlike posts
